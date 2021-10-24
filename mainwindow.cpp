@@ -34,6 +34,7 @@ void MainWindow::on_pushButton_clicked()
         QMessageBox::information(nullptr, QObject::tr("ok"),
                     QObject::tr("ajout effectue\n"
                                 "Click ok to exit."), QMessageBox::Ok);
+        ui->tab_employe->setModel(e.afficher());
 
 }
     else
@@ -53,6 +54,7 @@ void MainWindow::on_pushButton_2_clicked()
         QMessageBox::information(nullptr, QObject::tr("ok"),
                     QObject::tr("suppression effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Ok);
+        ui->tab_employe->setModel(e.afficher());
 
 }
     else
