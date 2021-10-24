@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -51,19 +51,6 @@
         <width>113</width>
         <height>25</height>
        </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>490</x>
-        <y>150</y>
-        <width>112</width>
-        <height>34</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>valider</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
@@ -181,6 +168,19 @@
        </rect>
       </property>
      </widget>
+     <widget class="QPushButton" name="ajouter">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>190</y>
+        <width>112</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>VALIDER</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -209,11 +209,11 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="supprimer">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>190</y>
+        <x>470</x>
+        <y>200</y>
         <width>112</width>
         <height>34</height>
        </rect>
@@ -233,8 +233,21 @@
         <x>30</x>
         <y>20</y>
         <width>641</width>
-        <height>401</height>
+        <height>201</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PDF">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>320</y>
+        <width>112</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>pdf</string>
       </property>
      </widget>
     </widget>

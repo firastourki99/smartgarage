@@ -3,6 +3,7 @@
 #include "employe.h"
 #include <QMessageBox>
 #include <QIntValidator>
+#include <QFileDialog>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -19,7 +20,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+
+
+void MainWindow::on_ajouter_clicked()
 {
     int id=ui->ID->text().toInt();
     QString nom=ui->NOM->text();
@@ -41,10 +44,9 @@ void MainWindow::on_pushButton_clicked()
         QMessageBox::critical(nullptr, QObject::tr("not ok"),
                     QObject::tr("ajout non effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
-
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_supprimer_clicked()
 {
     employe e1;
     e1.setid(ui->IDS->text().toInt());
@@ -61,6 +63,13 @@ void MainWindow::on_pushButton_2_clicked()
         QMessageBox::critical(nullptr, QObject::tr("not ok"),
                     QObject::tr("suppression non effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
-
 }
 
+void MainWindow::on_PDF_clicked()
+{
+    QString filename = QFileDialog::getSaveFileName(
+            this,
+            tr("Save Document"),
+            QDir::currentPath(),
+            tr("PDF (*.pdf)") );
+}
