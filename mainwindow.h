@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void afficher1();
 
 private slots:
 
@@ -26,6 +27,8 @@ private slots:
     void on_supprimer_clicked();
 
     void on_PDF_clicked();
+
+    void on_modifier_clicked();
 
 private:
     Ui::MainWindow *ui;

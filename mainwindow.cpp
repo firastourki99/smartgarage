@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
+
 }
 
 MainWindow::~MainWindow()
@@ -121,4 +122,39 @@ void MainWindow::on_PDF_clicked()
                         doc.setHtml(strStream);
                         doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                         doc.print(&printer);
+}
+
+void MainWindow::on_modifier_clicked()
+{
+    int id =ui->ID->text().toInt();
+
+        QString nom=ui->NOM->text();
+        QString prenom=ui->PRENOM->text();
+        QString email=ui->EMAIL->text();
+        QString fonction=ui->FONCTION->text();
+        QString salaire=ui->SALAIRE->text();
+
+
+        employe e(id,nom,prenom,email,fonction,salaire);
+
+        bool test=e.editer();
+
+        if(test){
+
+
+    QMessageBox::information(nullptr, QObject::tr("edité une machine"),
+                        QObject::tr("machine edité.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+    ui->tab_employe->setModel(e.afficher());
+
+
+
+    }
+        else{
+            QMessageBox::critical(nullptr, QObject::tr("editer une machine"),
+                        QObject::tr("machine non edité.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+     }
 }

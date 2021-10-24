@@ -73,4 +73,15 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
               model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
               return model;
     }
+    bool employe::editer(){
+        QSqlQuery query;
+        QString r= QString::number(id);
+        query.prepare("UPDATE employe SET id=:id,nom=:nom,prenom=:prenom WHERE id=:id");
+       query.bindValue(":id",r);
+       query.bindValue(":nom",nom);
+       query.bindValue(":prenom",prenom);
+
+
+        return query.exec();
+    }
 
