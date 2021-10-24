@@ -3,6 +3,8 @@
 #include "employe.h"
 
 #include <QMainWindow>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
 
 namespace Ui {
 class MainWindow;
