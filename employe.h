@@ -20,6 +20,7 @@ public:
     void setfonction(QString);
     void setsalaire(QString);
     bool ajouter();
+    bool supprimer(int);
 
 private:
     int id;

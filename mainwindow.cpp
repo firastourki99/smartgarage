@@ -29,12 +29,31 @@ void MainWindow::on_pushButton_clicked()
     {
         QMessageBox::information(nullptr, QObject::tr("ok"),
                     QObject::tr("ajout effectue\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+                                "Click ok to exit."), QMessageBox::Ok);
 
 }
     else
         QMessageBox::critical(nullptr, QObject::tr("not ok"),
                     QObject::tr("ajout non effectue\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    employe e1;
+    e1.setid(ui->IDS->text().toInt());
+    bool test =e1.supprimer(e1.getid());
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("suppression effectue\n"
+                                "Click Cancel to exit."), QMessageBox::Ok);
+
+}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("suppression non effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
 }

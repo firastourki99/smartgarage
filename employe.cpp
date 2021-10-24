@@ -51,4 +51,12 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
 
         return query.exec();
     }
+    bool employe::supprimer(int)
+    {
+        QSqlQuery query;
+        QString id_string=QString::number(id);
+        query.prepare("DELETE FROM employe WHERE Id = :id");
+        query.bindValue(":id", id_string);
+        return query.exec();
+    }
 
