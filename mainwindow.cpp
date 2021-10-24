@@ -2,12 +2,16 @@
 #include "ui_mainwindow.h"
 #include "employe.h"
 #include <QMessageBox>
+#include <QIntValidator>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->ID->setValidator( new QIntValidator(100,9999999,this));
+    ui->tab_employe->setModel(e.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -57,3 +61,4 @@ void MainWindow::on_pushButton_2_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
 }
+

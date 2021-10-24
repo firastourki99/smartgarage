@@ -1,6 +1,8 @@
 #include "employe.h"
 #include <QSqlQuery>
 #include <QtDebug>
+#include <QSqlQueryModel>
+#include <QObject>
 employe::employe()
 {
     id=0;
@@ -58,5 +60,17 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
         query.prepare("DELETE FROM employe WHERE Id = :id");
         query.bindValue(":id", id_string);
         return query.exec();
+    }
+    QSqlQueryModel* employe::afficher()
+    {
+        QSqlQueryModel *model = new QSqlQueryModel;
+              model->setQuery("SELECT* FROM employe");
+              model->setHeaderData(0, Qt::Horizontal, QObject::tr("identifiant"));
+              model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+              model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+              model->setHeaderData(3, Qt::Horizontal, QObject::tr("email"));
+              model->setHeaderData(4, Qt::Horizontal, QObject::tr("fonction"));
+              model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+              return model;
     }
 

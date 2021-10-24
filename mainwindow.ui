@@ -24,11 +24,11 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>ajouter</string>
      </attribute>
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -184,7 +184,7 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>supprimer</string>
      </attribute>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
@@ -220,6 +220,21 @@
       </property>
       <property name="text">
        <string>supprimer</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>afficher</string>
+     </attribute>
+     <widget class="QTableView" name="tab_employe">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>641</width>
+        <height>401</height>
+       </rect>
       </property>
      </widget>
     </widget>

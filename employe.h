@@ -1,6 +1,7 @@
 #ifndef EMPLOYE_H
 #define EMPLOYE_H
 #include<QString>
+#include<QSqlQueryModel>
 
 class employe
 {
@@ -21,6 +22,7 @@ public:
     void setsalaire(QString);
     bool ajouter();
     bool supprimer(int);
+    QSqlQueryModel* afficher();
 
 private:
     int id;
