@@ -76,10 +76,13 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
     bool employe::editer(){
         QSqlQuery query;
         QString r= QString::number(id);
-        query.prepare("UPDATE employe SET id=:id,nom=:nom,prenom=:prenom WHERE id=:id");
+        query.prepare("UPDATE employe SET id=:id,nom=:nom,prenom=:prenom,email=:email,fonction=:fonction,salaire=:salaire WHERE id=:id");
        query.bindValue(":id",r);
        query.bindValue(":nom",nom);
        query.bindValue(":prenom",prenom);
+       query.bindValue(":email",email);
+       query.bindValue(":fonction",fonction);
+       query.bindValue(":salaire",salaire);
 
 
         return query.exec();
@@ -110,5 +113,11 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
         return model;
 
     }tri */
+    QSqlQueryModel* employe::tri()
+    {
+        QSqlQueryModel * model=new QSqlQueryModel();
+        model->setQuery("select * from employe ordre by nom");
+        return model;
+    }
 
 

@@ -18,8 +18,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
+    affiche();
 
 
+}
+void MainWindow::affiche()
+{
+    proxy_employe = new QSortFilterProxyModel();
+    proxy_employe ->setSourceModel(tmp.afficher());
+    proxy_employe ->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    proxy_employe ->setFilterKeyColumn(selected_employe);
+    ui->tab_employe->setModel(proxy_employe );
 }
 
 
@@ -29,6 +38,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 
 
@@ -147,24 +157,24 @@ void MainWindow::on_modifier_clicked()
         if(test){
 
 
-    QMessageBox::information(nullptr, QObject::tr("edité une machine"),
-                        QObject::tr("machine edité.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+    QMessageBox::information(nullptr, QObject::tr("edité un employe"),
+                        QObject::tr("employe edité.\n"
+                                    "Click Ok to exit."), QMessageBox::Ok);
     ui->tab_employe->setModel(e.afficher());
 
 
 
     }
         else{
-            QMessageBox::critical(nullptr, QObject::tr("editer une machine"),
-                        QObject::tr("machine non edité.\n"
+            QMessageBox::critical(nullptr, QObject::tr("editer un employe"),
+                        QObject::tr("employe non edité.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
 
 
      }
 }
-
-void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+//methode de recherche
+/*void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
     employe e;
 
@@ -191,4 +201,24 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
                  {
                  ui->tab_employe->setModel(tmprechcomp.afficher());
                  }
+}*/
+
+//recherche avec combobox
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{
+
+        selected_employe=ui->comboBox->currentIndex();
+                affiche();
+
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    proxy_employe->setFilterFixedString(arg1);
+}
+//trier
+void MainWindow::on_trier_clicked()
+{
+    ui->tab_employe->setModel(e.tri());
+    ui->tab_employe->setModel(tmp.afficher());
 }

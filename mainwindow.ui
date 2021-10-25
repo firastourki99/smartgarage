@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>975</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,173 +19,35 @@
      <rect>
       <x>40</x>
       <y>40</y>
-      <width>721</width>
-      <height>491</height>
+      <width>911</width>
+      <height>611</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>ajouter</string>
+      <string>gestion employe</string>
      </attribute>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>70</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>id</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="ID">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>70</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>120</y>
-        <width>69</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>nom</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>170</y>
-        <width>69</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>prenom</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>210</y>
-        <width>69</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>email</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>250</y>
-        <width>69</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>fonction</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>290</y>
-        <width>69</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>salaire</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="NOM">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>110</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="PRENOM">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>160</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="EMAIL">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>210</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="FONCTION">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>250</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="SALAIRE">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>290</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="ajouter">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>190</y>
+        <x>60</x>
+        <y>300</y>
         <width>112</width>
         <height>34</height>
        </rect>
       </property>
       <property name="text">
-       <string>VALIDER</string>
+       <string>ajouter</string>
       </property>
      </widget>
      <widget class="QPushButton" name="modifier">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>250</y>
+        <x>190</x>
+        <y>300</y>
         <width>112</width>
         <height>34</height>
        </rect>
@@ -194,26 +56,31 @@
        <string>modifier</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>afficher</string>
-     </attribute>
      <widget class="QTableView" name="tab_employe">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>641</width>
-        <height>201</height>
+        <x>320</x>
+        <y>70</y>
+        <width>541</width>
+        <height>441</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>530</y>
+        <width>176</width>
+        <height>25</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="PDF">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>320</y>
+        <x>748</x>
+        <y>521</y>
         <width>112</width>
         <height>34</height>
        </rect>
@@ -222,60 +89,156 @@
        <string>pdf</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>270</y>
-        <width>171</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>modifier</string>
-     </attribute>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>supprimer</string>
-     </attribute>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>90</y>
-        <width>69</width>
+        <x>320</x>
+        <y>530</y>
+        <width>70</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>ID</string>
+       <string>recherche</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="IDS">
+     <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>90</y>
-        <width>113</width>
-        <height>25</height>
+        <x>410</x>
+        <y>530</y>
+        <width>92</width>
+        <height>26</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>prenom</string>
+       </property>
+      </item>
      </widget>
-     <widget class="QPushButton" name="supprimer">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>200</y>
+        <x>60</x>
+        <y>70</y>
+        <width>241</width>
+        <height>208</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>id</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="EMAIL"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="FONCTION"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="PRENOM"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>prenom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>salaire</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="NOM"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>nom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="SALAIRE"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>fonction</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="ID"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>79</x>
+        <y>472</y>
+        <width>201</width>
+        <height>67</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>        ID       </string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="IDS"/>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QPushButton" name="supprimer">
+         <property name="text">
+          <string>supprimer</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="trier">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>390</y>
         <width>112</width>
         <height>34</height>
        </rect>
       </property>
       <property name="text">
-       <string>supprimer</string>
+       <string>trier</string>
       </property>
      </widget>
     </widget>
@@ -286,7 +249,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>975</width>
      <height>30</height>
     </rect>
    </property>

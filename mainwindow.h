@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
+#include <QSortFilterProxyModel>
 
 
 
@@ -19,7 +20,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void afficher1();
+    void affiche();
+    QSortFilterProxyModel *proxy_employe;
 
 private slots:
 
@@ -32,12 +34,20 @@ private slots:
 
     void on_modifier_clicked();
 
-    void on_lineEdit_textChanged(const QString &arg1);
+    /*void on_lineEdit_textChanged(const QString &arg1);*/
+
+   void on_comboBox_currentIndexChanged(int index);
+
+   void on_lineEdit_textChanged(const QString &arg1);
+
+   void on_trier_clicked();
 
 private:
     Ui::MainWindow *ui;
     employe e;
+    employe tmp;
     employe tmprechcomp;
+    int selected_employe=0;
 
 
 };

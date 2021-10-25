@@ -28,7 +28,8 @@ public:
     bool editer();
     void rechercher_emp(QTableView * table,QString);
     void clear(QTableView * table);
-    QSqlTableModel *tri1(int);
+    //QSqlTableModel *tri1(int);
+    QSqlQueryModel *tri() ;
 
 
 private:
