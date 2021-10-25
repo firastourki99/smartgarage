@@ -3,6 +3,7 @@
 #include<QString>
 #include<QSqlQueryModel>
 #include<QTableView>
+#include <QSqlTableModel>
 
 class employe
 {
@@ -27,6 +28,7 @@ public:
     bool editer();
     void rechercher_emp(QTableView * table,QString);
     void clear(QTableView * table);
+    QSqlTableModel *tri1(int);
 
 
 private:

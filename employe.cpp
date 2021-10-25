@@ -101,5 +101,14 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
         model->clear();
         table->setModel(model);
     }
+    /*QSqlTableModel* employe::tri1(int id)
+    {
+        QSqlTableModel *model=new QSqlTableModel();
+        model->setTable("id");
+        model->setSort(id,Qt::DescendingOrder);
+        model->select();
+        return model;
+
+    }tri */
 
 
