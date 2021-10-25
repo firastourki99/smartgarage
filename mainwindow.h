@@ -6,6 +6,8 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -30,9 +32,12 @@ private slots:
 
     void on_modifier_clicked();
 
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     employe e;
+    employe tmprechcomp;
 
 
 };

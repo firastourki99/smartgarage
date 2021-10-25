@@ -84,4 +84,22 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
 
         return query.exec();
     }
+    void employe::rechercher_emp(QTableView * table,QString id)
+    {
+        QSqlQueryModel *model=new QSqlQueryModel();
+        QSqlQuery *query =new QSqlQuery();
+        query->prepare("select * from employe where regexp_like(id,:id);");
+        query->bindValue(":id",id);
+        query->exec();
+        model->setQuery(*query);
+        table->setModel(model);
+        table->show();
+    }
+    void employe::clear(QTableView *table)
+    {
+        QSqlQueryModel *model=new QSqlQueryModel();
+        model->clear();
+        table->setModel(model);
+    }
+
 

@@ -2,6 +2,7 @@
 #define EMPLOYE_H
 #include<QString>
 #include<QSqlQueryModel>
+#include<QTableView>
 
 class employe
 {
@@ -24,6 +25,8 @@ public:
     bool supprimer(int);
     QSqlQueryModel* afficher();
     bool editer();
+    void rechercher_emp(QTableView * table,QString);
+    void clear(QTableView * table);
 
 
 private:

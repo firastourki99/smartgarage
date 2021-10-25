@@ -7,6 +7,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 #include <QTextDocument>
+#include <QSqlQuery>
 
 
 
@@ -18,7 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
 
+
 }
+
+
+
 
 MainWindow::~MainWindow()
 {
@@ -157,4 +162,33 @@ void MainWindow::on_modifier_clicked()
 
 
      }
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    employe e;
+
+                 if(ui->lineEdit->text().isEmpty())
+                 {
+
+                     ui->tab_employe->setVisible(false);
+                     QSqlQuery* query=new QSqlQuery("SELECT* from employe");
+                     QSqlQueryModel *model=new QSqlQueryModel();
+                     model->setQuery(*query);
+                     ui->tab_employe->setModel(model);
+                     ui->tab_employe->show();
+                     ui->tab_employe->resizeColumnsToContents();
+                     ui->tab_employe->setVisible(true);
+
+                 }
+
+
+                 e.clear(ui->tab_employe);
+                 QString nom=ui->lineEdit->text();
+                 e.rechercher_emp(ui->tab_employe,nom);
+
+                 if(ui->lineEdit->text().isEmpty())
+                 {
+                 ui->tab_employe->setModel(tmprechcomp.afficher());
+                 }
 }
