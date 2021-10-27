@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QApplication>
+#include <QMessageBox>
 #include <QMainWindow>
 
 namespace Ui {
@@ -14,6 +16,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+
+    void on_pb_ajouter_clicked();
 
 private:
     Ui::MainWindow *ui;

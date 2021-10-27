@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1052</width>
-    <height>694</height>
+    <width>1077</width>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,8 +39,8 @@ QFrame
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>90</y>
+      <x>100</x>
+      <y>10</y>
       <width>921</width>
       <height>591</height>
      </rect>
@@ -91,7 +91,7 @@ QFrame
           <height>439</height>
          </rect>
         </property>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="pb_supprimer">
          <property name="geometry">
           <rect>
            <x>280</x>
@@ -107,7 +107,7 @@ QFrame
           <string>Supprimer</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="pb_modifier">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -169,7 +169,7 @@ subcontrol-origin: margin;
        <property name="title">
         <string>Ajouter voiture</string>
        </property>
-       <widget class="QLineEdit" name="lineEdit_6">
+       <widget class="QLineEdit" name="le_matricule">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -187,7 +187,7 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_7">
+       <widget class="QLineEdit" name="le_id">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -205,7 +205,7 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_8">
+       <widget class="QLineEdit" name="le_marque">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -223,7 +223,7 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_9">
+       <widget class="QLineEdit" name="le_modele">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -241,7 +241,7 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_10">
+       <widget class="QLineEdit" name="le_couleur">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -314,7 +314,7 @@ subcontrol-origin: margin;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Modele&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QDateEdit" name="dateEdit_2">
+       <widget class="QDateEdit" name="dateEdit">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -324,7 +324,7 @@ subcontrol-origin: margin;
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="pb_ajouter">
         <property name="geometry">
          <rect>
           <x>160</x>
@@ -356,7 +356,6 @@ subcontrol-origin: margin;
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -364,7 +363,7 @@ subcontrol-origin: margin;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1052</width>
+     <width>1077</width>
      <height>26</height>
     </rect>
    </property>
