@@ -1,12 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "voiture.h"
+#include <QIntValidator>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->le_id->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
+    ui->tab_voiture->setModel(V.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -29,11 +33,12 @@ void MainWindow::on_pb_ajouter_clicked()
 
     if(test)
     {
+        ui->tab_voiture->setModel(V.afficher());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Ajout effectué.\n"
                                 "Click Ok to exit."), QMessageBox::Ok);
 
-}
+    }
     else
         QMessageBox::critical(nullptr, QObject::tr("database is not open"),
                     QObject::tr("Ajout non effectué.\n"

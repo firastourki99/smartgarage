@@ -42,3 +42,16 @@ bool Voiture::ajouter()
 
     return query.exec();
 }
+
+QSqlQueryModel * Voiture::afficher()
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("SELECT * from Voiture");
+          model->setHeaderData(0, Qt::Horizontal, QObject::tr("Matricule"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("ID"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Marque"));
+          model->setHeaderData(3, Qt::Horizontal, QObject::tr("Modele"));
+          model->setHeaderData(4, Qt::Horizontal, QObject::tr("Couleur"));
+
+    return model;
+}

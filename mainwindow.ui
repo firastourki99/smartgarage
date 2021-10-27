@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1077</width>
-    <height>654</height>
+    <width>1136</width>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,134 +18,45 @@
 	font-family : century gothic;
 	font-size : 16px;
 }
-
-QFrame
-{
-	background : rgb(255, 174, 12);
-}
-
-#Form
-{
-	background : url(C:/Users/mehdi/OneDrive/Images/back.png);
-}
-
-#pushButton
-{
-	background : blue;
-	border-radius : 60px;
-}</string>
+</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>20</x>
       <y>10</y>
       <width>921</width>
       <height>591</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true"/>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
     </property>
-    <property name="currentIndex">
-     <number>0</number>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="page_2">
-     <widget class="QFrame" name="frame">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>921</width>
-        <height>591</height>
-       </rect>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QScrollArea" name="scrollArea_2">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>50</y>
-         <width>441</width>
-         <height>441</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="widgetResizable">
-        <bool>true</bool>
-       </property>
-       <widget class="QWidget" name="scrollAreaWidgetContents_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>439</width>
-          <height>439</height>
-         </rect>
-        </property>
-        <widget class="QPushButton" name="pb_supprimer">
-         <property name="geometry">
-          <rect>
-           <x>280</x>
-           <y>390</y>
-           <width>151</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Supprimer</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pb_modifier">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>390</y>
-           <width>151</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Modifier</string>
-         </property>
-        </widget>
-       </widget>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>570</x>
-         <y>0</y>
-         <width>131</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;Liste des voitures&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>921</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background : rgb(255, 170, 127);</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page_2">
       <widget class="QGroupBox" name="groupBox_2">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>40</y>
+         <x>10</x>
+         <y>50</y>
          <width>361</width>
          <height>451</height>
         </rect>
@@ -354,6 +265,77 @@ subcontrol-origin: margin;
         </property>
        </widget>
       </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>10</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#000000;&quot;&gt;Liste des voitures&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_supprimer">
+       <property name="geometry">
+        <rect>
+         <x>740</x>
+         <y>530</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tab_voiture">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>60</y>
+         <width>511</width>
+         <height>441</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_modifier">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>530</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Modifier</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>530</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PDF</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -363,7 +345,7 @@ subcontrol-origin: margin;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1077</width>
+     <width>1136</width>
      <height>26</height>
     </rect>
    </property>

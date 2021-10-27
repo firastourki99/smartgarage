@@ -3,6 +3,9 @@
 #include <QSqlQuery>
 #include <QString>
 #include <QtDebug>
+#include<QSqlQueryModel>
+#include<QObject>
+#include<QTableView>
 class Voiture
 {
 public:
@@ -25,6 +28,7 @@ public:
 
     //functions
     bool ajouter();
+    QSqlQueryModel * afficher();
 private:
     int matricule, IdClient;
     QString marque, modele, couleur;

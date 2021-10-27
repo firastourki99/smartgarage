@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QMainWindow>
+#include "voiture.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Voiture V;
 };
 
 #endif // MAINWINDOW_H
