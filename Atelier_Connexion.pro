@@ -28,12 +28,14 @@ SOURCES += \
     client.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    maquette_client.cpp
 
 HEADERS += \
     client.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    maquette_client.h
 
 FORMS += \
         mainwindow.ui
