@@ -55,3 +55,12 @@ QSqlQueryModel * Voiture::afficher()
 
     return model;
 }
+
+bool Voiture::suprimmer(int id)
+{
+    QSqlQuery query;
+          query.prepare("DELETE FROM voiture where idclient =: id");
+          query.bindValue(0, id);
+
+    return query.exec();
+}

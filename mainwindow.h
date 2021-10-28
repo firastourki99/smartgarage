@@ -22,6 +22,8 @@ private slots:
 
     void on_pb_ajouter_clicked();
 
+    void on_pb_supprimer_clicked();
+
 private:
     Ui::MainWindow *ui;
     Voiture V;

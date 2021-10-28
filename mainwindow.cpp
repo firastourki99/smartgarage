@@ -45,3 +45,21 @@ void MainWindow::on_pb_ajouter_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 
 }
+
+void MainWindow::on_pb_supprimer_clicked()
+{
+
+    Voiture V1;V1.setIdClient(ui->le_supprimer->text().toInt());
+    bool test = V1.suprimmer(V1.getIdClient());
+    QMessageBox msgBox;
+    if(test)
+    {
+        ui->tab_voiture->setModel(V.afficher());
+        msgBox.setText("Suppression avec succes!");
+    }
+    else
+    {
+        msgBox.setText("Echec de suppression");
+    }
+    msgBox.exec();
+}

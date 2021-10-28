@@ -29,6 +29,7 @@ public:
     //functions
     bool ajouter();
     QSqlQueryModel * afficher();
+    bool suprimmer(int);
 private:
     int matricule, IdClient;
     QString marque, modele, couleur;
