@@ -313,6 +313,9 @@ subcontrol-origin: margin;
          <height>441</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
       </widget>
       <widget class="QPushButton" name="pb_modifier">
        <property name="geometry">
