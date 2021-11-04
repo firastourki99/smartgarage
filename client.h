@@ -24,11 +24,12 @@ public:
     void setadr(QString);
     void setmail(QString);
     void setvoiture(QString);
+    bool ajouter();
 
 
 private:
-    int id;
-    QString nom, prenom, adresse, mail, num_tel, voiture, cin;
+    int cin,num;
+    QString nom, prenom, adresse, mail, num_tel, voiture;
 };
 
 #endif // CLIENT_H
