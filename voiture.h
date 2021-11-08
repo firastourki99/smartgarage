@@ -31,7 +31,7 @@ public:
     QSqlQueryModel * afficher();
     bool suprimmer(int);
 private:
-    int matricule, IdClient;
+    int matricule, cin;
     QString marque, modele, couleur;
 };
 

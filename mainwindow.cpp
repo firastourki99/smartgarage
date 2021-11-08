@@ -28,7 +28,7 @@ void MainWindow::on_pb_ajouter_clicked()
     QString modele = ui->le_modele->text();
     QString couleur = ui->le_couleur->text();
     Voiture V(matricule, id, marque, modele, couleur);
-
+    //ui->tab_voiture->setModel(V.afficher());
     bool test = V.ajouter();
 
     if(test)
