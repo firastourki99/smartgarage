@@ -3,6 +3,8 @@
 #include <QtDebug>
 #include <QSqlQueryModel>
 #include <QObject>
+#include <QSortFilterProxyModel>
+
 employe::employe()
 {
     id=0;
@@ -71,6 +73,8 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
               model->setHeaderData(3, Qt::Horizontal, QObject::tr("email"));
               model->setHeaderData(4, Qt::Horizontal, QObject::tr("fonction"));
               model->setHeaderData(5, Qt::Horizontal, QObject::tr("salaire"));
+
+
               return model;
     }
     bool employe::editer(){
@@ -104,20 +108,10 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
         model->clear();
         table->setModel(model);
     }
-    /*QSqlTableModel* employe::tri1(int id)
-    {
-        QSqlTableModel *model=new QSqlTableModel();
-        model->setTable("id");
-        model->setSort(id,Qt::DescendingOrder);
-        model->select();
-        return model;
 
-    }tri */
-    QSqlQueryModel* employe::tri()
-    {
-        QSqlQueryModel * model=new QSqlQueryModel();
-        model->setQuery("select * from employe ordre by nom");
-        return model;
-    }
-
-
+QSqlQueryModel *employe::tri()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from employe order by ID");
+    return model;
+}

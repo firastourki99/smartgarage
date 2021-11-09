@@ -17,8 +17,8 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>40</y>
+      <x>20</x>
+      <y>30</y>
       <width>911</width>
       <height>611</height>
      </rect>
@@ -30,32 +30,6 @@
      <attribute name="title">
       <string>gestion employe</string>
      </attribute>
-     <widget class="QPushButton" name="ajouter">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>300</y>
-        <width>112</width>
-        <height>34</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ajouter</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="modifier">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>300</y>
-        <width>112</width>
-        <height>34</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>modifier</string>
-      </property>
-     </widget>
      <widget class="QTableView" name="tab_employe">
       <property name="geometry">
        <rect>
@@ -228,18 +202,64 @@
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="trier">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>390</y>
-        <width>112</width>
-        <height>34</height>
+        <x>60</x>
+        <y>300</y>
+        <width>232</width>
+        <height>116</height>
        </rect>
       </property>
-      <property name="text">
-       <string>trier</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="ajouter">
+         <property name="text">
+          <string>ajouter</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="modifier">
+         <property name="text">
+          <string>modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QComboBox" name="comboBox_2">
+         <item>
+          <property name="text">
+           <string>id</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>nom</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>fonction</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="trier">
+         <property name="text">
+          <string>trier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>email</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

@@ -4,6 +4,8 @@
 #include<QSqlQueryModel>
 #include<QTableView>
 #include <QSqlTableModel>
+#include <QMessageBox>
+#include <QSqlError>
 
 class employe
 {
@@ -29,7 +31,9 @@ public:
     void rechercher_emp(QTableView * table,QString);
     void clear(QTableView * table);
     //QSqlTableModel *tri1(int);
-    QSqlQueryModel *tri() ;
+     QSqlQueryModel *tri() ;
+
+
 
 
 private:

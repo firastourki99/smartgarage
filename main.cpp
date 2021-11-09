@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "email.h"
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"

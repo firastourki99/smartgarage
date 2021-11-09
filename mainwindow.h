@@ -1,11 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "employe.h"
-
+#include "dialog_email.h"
 #include <QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
 #include <QSortFilterProxyModel>
+#include <QSqlError>
 
 
 
@@ -20,8 +21,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void affiche();
+
     QSortFilterProxyModel *proxy_employe;
+    void afficher();
+    void affiche();
+    void tri();
+
+
 
 private slots:
 
@@ -40,13 +46,23 @@ private slots:
 
    void on_lineEdit_textChanged(const QString &arg1);
 
+
+
+
+
    void on_trier_clicked();
+
+   void on_comboBox_2_currentIndexChanged(int index);
+
+
+   void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    Dialog_email *dialog_email;
     employe e;
-    employe tmp;
-    employe tmprechcomp;
+
+
     int selected_employe=0;
 
 

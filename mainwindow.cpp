@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "ui_mainwin.h"
 #include "employe.h"
 #include <QMessageBox>
 #include <QIntValidator>
@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QTextDocument>
 #include <QSqlQuery>
+#include "email.h"
 
 
 
@@ -25,11 +26,16 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::affiche()
 {
     proxy_employe = new QSortFilterProxyModel();
-    proxy_employe ->setSourceModel(tmp.afficher());
+    proxy_employe ->setSourceModel(e.afficher());
     proxy_employe ->setFilterCaseSensitivity(Qt::CaseInsensitive);
     proxy_employe ->setFilterKeyColumn(selected_employe);
     ui->tab_employe->setModel(proxy_employe );
+
 }
+
+
+
+
 
 
 
@@ -163,7 +169,6 @@ void MainWindow::on_modifier_clicked()
     ui->tab_employe->setModel(e.afficher());
 
 
-
     }
         else{
             QMessageBox::critical(nullptr, QObject::tr("editer un employe"),
@@ -173,35 +178,7 @@ void MainWindow::on_modifier_clicked()
 
      }
 }
-//methode de recherche
-/*void MainWindow::on_lineEdit_textChanged(const QString &arg1)
-{
-    employe e;
 
-                 if(ui->lineEdit->text().isEmpty())
-                 {
-
-                     ui->tab_employe->setVisible(false);
-                     QSqlQuery* query=new QSqlQuery("SELECT* from employe");
-                     QSqlQueryModel *model=new QSqlQueryModel();
-                     model->setQuery(*query);
-                     ui->tab_employe->setModel(model);
-                     ui->tab_employe->show();
-                     ui->tab_employe->resizeColumnsToContents();
-                     ui->tab_employe->setVisible(true);
-
-                 }
-
-
-                 e.clear(ui->tab_employe);
-                 QString nom=ui->lineEdit->text();
-                 e.rechercher_emp(ui->tab_employe,nom);
-
-                 if(ui->lineEdit->text().isEmpty())
-                 {
-                 ui->tab_employe->setModel(tmprechcomp.afficher());
-                 }
-}*/
 
 //recherche avec combobox
 void MainWindow::on_comboBox_currentIndexChanged(int index)
@@ -216,9 +193,31 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
     proxy_employe->setFilterFixedString(arg1);
 }
-//trier
+
+
+
 void MainWindow::on_trier_clicked()
 {
+
     ui->tab_employe->setModel(e.tri());
-    ui->tab_employe->setModel(tmp.afficher());
+
 }
+
+void MainWindow::on_comboBox_2_currentIndexChanged(int index)
+{
+
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+
+    dialog_email = new Dialog_email(this);
+    dialog_email->show();
+
+
+
+
+}
+
