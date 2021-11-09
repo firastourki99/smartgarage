@@ -27,8 +27,9 @@ void MainWindow::on_pb_ajouter_clicked()
     QString marque = ui->le_marque->text();
     QString modele = ui->le_modele->text();
     QString couleur = ui->le_couleur->text();
-    Voiture V(matricule, id, marque, modele, couleur);
-    //ui->tab_voiture->setModel(V.afficher());
+    QDate date = ui->dateEdit->date();
+
+    Voiture V(matricule, id, marque, modele, couleur, date);
     bool test = V.ajouter();
 
     if(test)
@@ -49,7 +50,8 @@ void MainWindow::on_pb_ajouter_clicked()
 void MainWindow::on_pb_supprimer_clicked()
 {
 
-    Voiture V1;V1.setIdClient(ui->le_supprimer->text().toInt());
+    Voiture V1;
+    V1.setIdClient(ui->le_supprimer->text().toInt());
     bool test = V1.suprimmer(V1.getIdClient());
     QMessageBox msgBox;
     if(test)
