@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwin.h"
+#include "ui_mainwindow.h"
 #include "employe.h"
 #include <QMessageBox>
 #include <QIntValidator>
@@ -8,7 +8,7 @@
 #include <QFileDialog>
 #include <QTextDocument>
 #include <QSqlQuery>
-#include "email.h"
+
 
 
 
@@ -216,8 +216,12 @@ void MainWindow::on_pushButton_clicked()
     dialog_email = new Dialog_email(this);
     dialog_email->show();
 
-
-
-
 }
 
+
+
+void MainWindow::on_stat_clicked()
+{
+    dialog_stat = new Dialog_stat(this);
+    dialog_stat->show();
+}

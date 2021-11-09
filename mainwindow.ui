@@ -202,7 +202,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -256,6 +256,13 @@
         <widget class="QPushButton" name="pushButton">
          <property name="text">
           <string>email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="stat">
+         <property name="text">
+          <string>stat</string>
          </property>
         </widget>
        </item>

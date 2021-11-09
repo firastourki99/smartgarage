@@ -28,21 +28,26 @@ CONFIG += c++11
 
 SOURCES += \
     dialog_email.cpp \
+    dialog_stat.cpp \
     employe.cpp \
         main.cpp \
     connection.cpp \
     mainwindow.cpp \
+    qcustomplot.cpp \
     smtp.cpp
 
 HEADERS += \
     dialog_email.h \
+    dialog_stat.h \
     employe.h \
     connection.h \
     mainwindow.h \
+    qcustomplot.h \
     smtp.h
 
 FORMS += \
         dialog_email.ui \
+        dialog_stat.ui \
         mainwindow.ui
 
 # Default rules for deployment.
