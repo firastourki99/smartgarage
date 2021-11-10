@@ -69,3 +69,45 @@ bool Voiture::suprimmer(int mat)
 
     return query.exec();
 }
+
+bool Voiture::modifier(int row, QString s, QString val)
+{
+    QSqlQuery query;
+    if (s == "Matricule")
+    {
+        query.prepare("UPDATE voiture set matricule =:mat where ROWID =:row");
+        query.bindValue(":mat", val);
+        query.bindValue(":row", row);
+        return query.exec();
+    }
+    else if (s == "ID")
+    {
+        query.prepare("UPDATE voiture set CIN =:cin ROWID =:row");
+        query.bindValue(":cin", val);
+        query.bindValue(":row", row);
+        return query.exec();
+    }
+    else if (s == "Marque")
+    {
+        query.prepare("UPDATE voiture set marque =:marque ROWID =:row");
+        query.bindValue(":marque", val);
+        query.bindValue(":row", row);
+        return query.exec();
+    }
+    else if (s == "Modele")
+    {
+        query.prepare("UPDATE voiture set modele =:modele ROWID =:row");
+        query.bindValue(":modele", val);
+        query.bindValue(":row", row);
+        return query.exec();
+    }
+    else if (s == "Couleur")
+    {
+        query.prepare("UPDATE voiture set couleur =:couleur ROWID =: row");
+        query.bindValue(":couleur", val);
+        query.bindValue(":row", row);
+        return query.exec();
+    }
+
+    return query.exec();
+}

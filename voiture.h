@@ -33,7 +33,7 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     bool suprimmer(int);
-    bool modifier(int);
+    bool modifier(int, QString, QString);
 private:
     int matricule, cin;
     QString marque, modele, couleur;

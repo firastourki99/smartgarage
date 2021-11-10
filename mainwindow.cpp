@@ -65,3 +65,29 @@ void MainWindow::on_pb_supprimer_clicked()
     }
     msgBox.exec();
 }
+
+void MainWindow::on_pb_modifier_clicked()
+{
+    Voiture V1;
+    QString a = "";
+    QString s = ui->CB_modify->currentText();
+    if (s == "Matricule") a = ui->le_matricule->text();
+    else if (s == "ID") a = ui->le_id->text();
+    else if (s == "Marque") a = ui->le_marque->text();
+    else if (s == "Modele") a = ui->le_modele->text();
+    else if (s == "Couleur") a = ui->le_couleur->text();
+    bool test = V1.modifier(ui->le_modifier->text().toInt(), s, a);
+
+    QMessageBox msgBox;
+    if(test)
+    {
+        ui->tab_voiture->setModel(V.afficher());
+        msgBox.setText("Modification avec succes!");
+    }
+    else
+    {
+        //msgBox.setText("Echec de modification");
+        msgBox.setText(a);
+    }
+    msgBox.exec();
+}
