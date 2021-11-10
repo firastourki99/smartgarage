@@ -128,9 +128,6 @@
        <item row="3" column="1">
         <widget class="QLineEdit" name="EMAIL"/>
        </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="FONCTION"/>
-       </item>
        <item row="2" column="1">
         <widget class="QLineEdit" name="PRENOM"/>
        </item>
@@ -170,6 +167,9 @@
        </item>
        <item row="0" column="1">
         <widget class="QLineEdit" name="ID"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="comboBox_fonction"/>
        </item>
       </layout>
      </widget>
@@ -267,6 +267,16 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QLineEdit" name="FONCTION">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>270</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
      </widget>
     </widget>
    </widget>

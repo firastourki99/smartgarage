@@ -19,6 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
+    QSqlQueryModel *model = new QSqlQueryModel;
+    QSqlQuery *qry = new QSqlQuery();
+          qry->prepare("SELECT id FROM employe");
+          qry->exec();
+          model->setQuery(*qry);
+    ui->comboBox_fonction->setModel(model);
     affiche();
 
 
