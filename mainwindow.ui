@@ -445,11 +445,6 @@ subcontrol-origin: margin;
        </property>
        <item>
         <property name="text">
-         <string>Matricule</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>ID</string>
         </property>
        </item>

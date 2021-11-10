@@ -72,47 +72,34 @@ bool Voiture::suprimmer(int mat)
 
 bool Voiture::modifier(int &row, QString &s, QString &val)
 {
-    QMessageBox msgBox;
-    msgBox.setText(QString::number(row));
-    msgBox.setText(s);
-    msgBox.setText(val);
     QSqlQuery query;
-    if (s.size() == 9)
-    {
-        query.prepare("UPDATE voiture SET matricule =:mat WHERE ROWID=:rowid");
-        query.bindValue(":mat", val);
-        query.bindValue(":rowid", "1");
 
-            msgBox.setText(QString::number(row));
-
-        return query.exec();
-    }
-    else if (s == "ID")
+    if (s == "ID")
     {
-        query.prepare("UPDATE voiture SET CIN =:cin ROWID =:rowid");
+        query.prepare("UPDATE voiture SET CIN =:cin WHERE matricule=:mat");
         query.bindValue(":cin", val);
-        query.bindValue(":rowid",QString::number(row));
+        query.bindValue(":mat", row);
         return query.exec();
     }
     else if (s == "Marque")
     {
-        query.prepare("UPDATE voiture SET marque =:marque ROWID =:rowid");
+        query.prepare("UPDATE voiture SET marque =:marque WHERE matricule=:mat");
         query.bindValue(":marque", val);
-        query.bindValue(":rowid", QString::number(row));
+        query.bindValue(":mat", row);
         return query.exec();
     }
     else if (s == "Modele")
     {
-        query.prepare("UPDATE voiture SET modele =:modele ROWID =:rowid");
+        query.prepare("UPDATE voiture SET modele =:modele WHERE matricule=:mat");
         query.bindValue(":modele", val);
-        query.bindValue(":rowid", QString::number(row));
+        query.bindValue(":mat", row);
         return query.exec();
     }
     else if (s == "Couleur")
     {
-        query.prepare("UPDATE voiture SET couleur =:couleur ROWID =: rowid");
+        query.prepare("UPDATE voiture SET couleur =:couleur WHERE matricule=:mat");
         query.bindValue(":couleur", val);
-        query.bindValue(":rowid", QString::number(row));
+        query.bindValue(":mat", row);
         return query.exec();
     }
 

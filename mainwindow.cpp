@@ -73,8 +73,8 @@ void MainWindow::on_pb_modifier_clicked()
     QString *s = new QString(ui->CB_modify->currentText());
     int row =ui->le_modifier->text().toInt();
     int *b = &row;
-    if ((*s) == "Matricule") (*a) = ui->le_matricule->text();
-    else if ((*s) == "ID") (*a) = ui->le_id->text();
+
+    if ((*s) == "ID") (*a) = ui->le_id->text();
     else if ((*s) == "Marque") (*a) = ui->le_marque->text();
     else if ((*s) == "Modele") (*a) = ui->le_modele->text();
     else if ((*s) == "Couleur") (*a) = ui->le_couleur->text();
