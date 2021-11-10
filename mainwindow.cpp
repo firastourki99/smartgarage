@@ -69,14 +69,16 @@ void MainWindow::on_pb_supprimer_clicked()
 void MainWindow::on_pb_modifier_clicked()
 {
     Voiture V1;
-    QString a = "";
-    QString s = ui->CB_modify->currentText();
-    if (s == "Matricule") a = ui->le_matricule->text();
-    else if (s == "ID") a = ui->le_id->text();
-    else if (s == "Marque") a = ui->le_marque->text();
-    else if (s == "Modele") a = ui->le_modele->text();
-    else if (s == "Couleur") a = ui->le_couleur->text();
-    bool test = V1.modifier(ui->le_modifier->text().toInt(), s, a);
+    QString *a = new QString("");
+    QString *s = new QString(ui->CB_modify->currentText());
+    int row =ui->le_modifier->text().toInt();
+    int *b = &row;
+    if ((*s) == "Matricule") (*a) = ui->le_matricule->text();
+    else if ((*s) == "ID") (*a) = ui->le_id->text();
+    else if ((*s) == "Marque") (*a) = ui->le_marque->text();
+    else if ((*s) == "Modele") (*a) = ui->le_modele->text();
+    else if ((*s) == "Couleur") (*a) = ui->le_couleur->text();
+    bool test = V1.modifier((*b), (*s), (*a));
 
     QMessageBox msgBox;
     if(test)
@@ -86,8 +88,7 @@ void MainWindow::on_pb_modifier_clicked()
     }
     else
     {
-        //msgBox.setText("Echec de modification");
-        msgBox.setText(a);
+        msgBox.setText("Echec de modification");
     }
     msgBox.exec();
 }

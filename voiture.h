@@ -7,6 +7,7 @@
 #include<QObject>
 #include<QTableView>
 #include<QDate>
+#include<QMessageBox>
 class Voiture
 {
 public:
@@ -33,7 +34,7 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     bool suprimmer(int);
-    bool modifier(int, QString, QString);
+    bool modifier(int&, QString&, QString&);
 private:
     int matricule, cin;
     QString marque, modele, couleur;

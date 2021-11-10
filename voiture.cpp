@@ -70,42 +70,49 @@ bool Voiture::suprimmer(int mat)
     return query.exec();
 }
 
-bool Voiture::modifier(int row, QString s, QString val)
+bool Voiture::modifier(int &row, QString &s, QString &val)
 {
+    QMessageBox msgBox;
+    msgBox.setText(QString::number(row));
+    msgBox.setText(s);
+    msgBox.setText(val);
     QSqlQuery query;
-    if (s == "Matricule")
+    if (s.size() == 9)
     {
-        query.prepare("UPDATE voiture set matricule =:mat where ROWID =:row");
+        query.prepare("UPDATE voiture SET matricule =:mat WHERE ROWID=:rowid");
         query.bindValue(":mat", val);
-        query.bindValue(":row", row);
+        query.bindValue(":rowid", "1");
+
+            msgBox.setText(QString::number(row));
+
         return query.exec();
     }
     else if (s == "ID")
     {
-        query.prepare("UPDATE voiture set CIN =:cin ROWID =:row");
+        query.prepare("UPDATE voiture SET CIN =:cin ROWID =:rowid");
         query.bindValue(":cin", val);
-        query.bindValue(":row", row);
+        query.bindValue(":rowid",QString::number(row));
         return query.exec();
     }
     else if (s == "Marque")
     {
-        query.prepare("UPDATE voiture set marque =:marque ROWID =:row");
+        query.prepare("UPDATE voiture SET marque =:marque ROWID =:rowid");
         query.bindValue(":marque", val);
-        query.bindValue(":row", row);
+        query.bindValue(":rowid", QString::number(row));
         return query.exec();
     }
     else if (s == "Modele")
     {
-        query.prepare("UPDATE voiture set modele =:modele ROWID =:row");
+        query.prepare("UPDATE voiture SET modele =:modele ROWID =:rowid");
         query.bindValue(":modele", val);
-        query.bindValue(":row", row);
+        query.bindValue(":rowid", QString::number(row));
         return query.exec();
     }
     else if (s == "Couleur")
     {
-        query.prepare("UPDATE voiture set couleur =:couleur ROWID =: row");
+        query.prepare("UPDATE voiture SET couleur =:couleur ROWID =: rowid");
         query.bindValue(":couleur", val);
-        query.bindValue(":row", row);
+        query.bindValue(":rowid", QString::number(row));
         return query.exec();
     }
 
