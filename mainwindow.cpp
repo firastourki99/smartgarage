@@ -9,7 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_modifier->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_supprimer->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z_]{0,12}"), this ));
+    ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z_]{0,12}"), this ));
+    ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z_]{0,12}"), this ));
     ui->tab_voiture->setModel(V.afficher());
 }
 
@@ -34,6 +39,11 @@ void MainWindow::on_pb_ajouter_clicked()
 
     if(test)
     {
+        ui->le_id->clear();
+        ui->le_marque->clear();
+        ui->le_matricule->clear();
+        ui->le_couleur->clear();
+        ui->le_modele->clear();
         ui->tab_voiture->setModel(V.afficher());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Ajout effectué.\n"
@@ -53,17 +63,20 @@ void MainWindow::on_pb_supprimer_clicked()
     Voiture V1;
     V1.setIdClient(ui->le_supprimer->text().toInt());
     bool test = V1.suprimmer(V1.getIdClient());
-    QMessageBox msgBox;
     if(test)
     {
+        ui->le_supprimer->clear();
         ui->tab_voiture->setModel(V.afficher());
-        msgBox.setText("Suppression avec succes!");
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                    QObject::tr("Suppression avec succes!\n"
+                                "Click Ok to exit."), QMessageBox::Ok);
     }
     else
     {
-        msgBox.setText("Echec de suppression");
+        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
+                    QObject::tr("Echec de suppression.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
     }
-    msgBox.exec();
 }
 
 void MainWindow::on_pb_modifier_clicked()
@@ -83,6 +96,7 @@ void MainWindow::on_pb_modifier_clicked()
     QMessageBox msgBox;
     if(test)
     {
+        ui->le_modifier->clear();
         ui->tab_voiture->setModel(V.afficher());
         msgBox.setText("Modification avec succes!");
     }

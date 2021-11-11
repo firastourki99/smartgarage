@@ -63,45 +63,63 @@ QSqlQueryModel * Voiture::afficher()
 
 bool Voiture::suprimmer(int mat)
 {
-    QSqlQuery query;
-          query.prepare("DELETE FROM voiture where MATRICULE =: mat");
-          query.bindValue(0, mat);
+    QSqlQuery q ;
+    q.exec("SELECT * FROM voiture");
+    while(q.next())
+    {
+        if (q.value(0) == mat)
+        {
+            QSqlQuery query;
+            query.prepare("DELETE FROM voiture where MATRICULE =:mat");
+            query.bindValue(0, mat);
+            return query.exec();
+        }
+    }
 
-    return query.exec();
+     return false;
 }
 
 bool Voiture::modifier(int &row, QString &s, QString &val)
 {
-    QSqlQuery query;
+    QSqlQuery q ;
+    q.exec("SELECT * FROM voiture");
+    while(q.next())
+    {
+        if (q.value(0) == row)
+        {
+            QSqlQuery query;
 
-    if (s == "ID")
-    {
-        query.prepare("UPDATE voiture SET CIN =:cin WHERE matricule=:mat");
-        query.bindValue(":cin", val);
-        query.bindValue(":mat", row);
-        return query.exec();
-    }
-    else if (s == "Marque")
-    {
-        query.prepare("UPDATE voiture SET marque =:marque WHERE matricule=:mat");
-        query.bindValue(":marque", val);
-        query.bindValue(":mat", row);
-        return query.exec();
-    }
-    else if (s == "Modele")
-    {
-        query.prepare("UPDATE voiture SET modele =:modele WHERE matricule=:mat");
-        query.bindValue(":modele", val);
-        query.bindValue(":mat", row);
-        return query.exec();
-    }
-    else if (s == "Couleur")
-    {
-        query.prepare("UPDATE voiture SET couleur =:couleur WHERE matricule=:mat");
-        query.bindValue(":couleur", val);
-        query.bindValue(":mat", row);
-        return query.exec();
-    }
+            if (s == "ID")
+            {
+                query.prepare("UPDATE voiture SET CIN =:cin WHERE matricule=:mat");
+                query.bindValue(":cin", val);
+                query.bindValue(":mat", row);
+                return query.exec();
+            }
+            else if (s == "Marque")
+            {
+                query.prepare("UPDATE voiture SET marque =:marque WHERE matricule=:mat");
+                query.bindValue(":marque", val);
+                query.bindValue(":mat", row);
+                return query.exec();
+            }
+            else if (s == "Modele")
+            {
+                query.prepare("UPDATE voiture SET modele =:modele WHERE matricule=:mat");
+                query.bindValue(":modele", val);
+                query.bindValue(":mat", row);
+                return query.exec();
+            }
+            else if (s == "Couleur")
+            {
+                query.prepare("UPDATE voiture SET couleur =:couleur WHERE matricule=:mat");
+                query.bindValue(":couleur", val);
+                query.bindValue(":mat", row);
+                return query.exec();
+            }
 
-    return query.exec();
+            return query.exec();
+        }
+    }
+    return false;
 }

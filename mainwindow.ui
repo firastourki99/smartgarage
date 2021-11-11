@@ -15,10 +15,6 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*{
-	
-	
-	
-	
 	background-color: rgb(170, 255, 127);
 	background-color: rgb(106, 255, 206);
 	font-family : century gothic;
