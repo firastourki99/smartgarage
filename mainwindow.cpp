@@ -2,12 +2,19 @@
 #include "ui_mainwindow.h"
 #include"client.h"
 #include<QMessageBox>
+#include<QIntValidator>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->lenum->setValidator(new QIntValidator(0, 9999999, this));
+    ui->lecin->setValidator(new QIntValidator(0, 9999999,this));
+
+    ui->lecin1->setValidator(new QIntValidator(0, 9999999,this));
+
+    ui->lecin2->setValidator(new QIntValidator(0, 9999999,this));
 }
 
 MainWindow::~MainWindow()
