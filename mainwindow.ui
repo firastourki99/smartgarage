@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1173</width>
-    <height>696</height>
+    <width>1061</width>
+    <height>679</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,6 +15,12 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*{
+	
+	
+	
+	
+	background-color: rgb(170, 255, 127);
+	background-color: rgb(106, 255, 206);
 	font-family : century gothic;
 	font-size : 16px;
 }
@@ -106,7 +112,7 @@ QComboBox::down-arrow:on {
        <x>0</x>
        <y>0</y>
        <width>1071</width>
-       <height>611</height>
+       <height>591</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -504,7 +510,7 @@ subcontrol-origin: margin;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1173</width>
+     <width>1061</width>
      <height>26</height>
     </rect>
    </property>
