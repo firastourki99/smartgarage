@@ -1,65 +1,72 @@
 #include "client.h"
-#include <QSqlQuery>
 
-Client::Client()
+Client::Client(int cin, int num ,QString nom, QString prenom,QString addresse,QString mail,QString matricule)
 {
-num_tel=0; cin=0; nom="";
+    this->CIN=cin;
+    this->NOM=nom;
+    this->NUM=num;
+    this->PRENOM=prenom;
+    this->ADDRESSE=addresse;
+    this->MAIL=mail;
+    this->MATRICULE=matricule;
 
-prenom="", adresse=""; voiture=""; mail="";
+
 }
-
-
-Client::Client(int num_tel,int cin, QString nom, QString prenom , QString adresse, QString mail  ,QString voiture);
-
-int getnum();
-int getcin();
-QString getnom();
-QString getprenom();
-QString getadr();
-QString getmail();
-QString getvoiture();
-{this->num_tel=num_tel; this->cin=cin; this->nom=nom; this->prenom=prenom; this->adresse=adresse; this->mail=mail; this->voiture=voiture}
-
-int Client::getnum(){return num;}
-int Client::getcin(){return cin;}
-QString Client::getnom(){return nom;}
-QString Client::getprenom(){return prenom;}
-QString Client::getadr(){return adresse;}
-QString Client::getmail(){return mail;}
-QString Client::getvoiture(){return voiture;}
-
-
-
-
-
-
-
-
-
-void Client:: setnum(int num) {this->num=num;}
-void Client::setcin(int cin) {this->cin=cin;}
-void Client::setnom(QString nom) {this->nom=nom;}
-void Client::setprenom(QString prenom) {this->prenom=prenom;}
-void Client::setadr(QString adresse) {this->adresse=adresse;}
-void Client::setmail(QString mail) {this->mail;}
-void Client::setvoiture(QString voiture) {this->voiture=voiture;}
 bool Client::ajouter()
-{bool test=false;
-    QSqlQuery query;
-    QString cin_string=QString::number(cin);
-    QString num_string=QString::number(num);
+{
+QSqlQuery query;
+QString res1=QString::number(CIN);
+QString res2=QString::number(NUM);
+query.prepare("INSERT INTO CLIENT(CIN,NOM,PRENOM,ADRESSE,NUMERO_TEL,MATRICULE_VOITURE,MAIL)""VALUES(:cin,:nom,:prenom,:adresse,:numero_tel,:matrcule_voiture,:mail)");
+query.bindValue(0,res1);
+query.bindValue(1,res2);
+query.bindValue(2,NOM);
+query.bindValue(3,PRENOM);
+query.bindValue(4,ADDRESSE);
+query.bindValue(5,MAIL);
+query.bindValue(6,MATRICULE);
 
-          query.prepare("INSERT INTO client (num,cin,nom,prenom,adresse,mail,voiture) "
-                        "VALUES (:num, :cin, :nom, :prenom, :adresse, :mail, :voiture)");
-          query.bindValue(":cin", cin_string);
-          query.bindValue(":num", num_string);
-          query.bindValue("nom", nom);
-          query.bindValue("prenom", prenom);
-          query.bindValue("adresse", adresse);
-          query.bindValue("mail", mail);
-          query.bindValue("voiture", voiture);
 
-          query.exec();
-
-return test;
+return query.exec();
 }
+
+bool Client::supprimer( int cin)
+{
+QSqlQuery query;
+QString res2=QString::number(cin);
+
+query.prepare("delete from CLIENT where CIN= :cin");
+query.bindValue(":cin",cin);
+return query.exec();
+}
+QSqlQueryModel*Client::afficher()
+{
+QSqlQueryModel * model=new QSqlQueryModel();
+model->setQuery("select * from CLIENT");
+model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
+model->setHeaderData(1,Qt::Horizontal,QObject::tr("NUM"));
+model->setHeaderData(2,Qt::Horizontal,QObject::tr("NOM"));
+model->setHeaderData(3,Qt::Horizontal,QObject::tr("PRENOM"));
+model->setHeaderData(4,Qt::Horizontal,QObject::tr("ADDRESSE"));
+model->setHeaderData(5,Qt::Horizontal,QObject::tr("MATRICULE"));
+model->setHeaderData(6,Qt::Horizontal,QObject::tr("MAIL"));
+return model;
+}
+bool Client::modifier(int cin)
+{
+     QSqlQuery query;
+     QString r1= QString::number(cin);
+
+    query.prepare("UPDATE CLIENT SET CIN=:cin ,NOM=:nom,PRENOM=:prenom,ADRESSE=:adresse,NUMERO_TEL=:numero_tel,MATRICULE_VOITURE=:matricule,MAIL=:mail WHERE CIN=:cin");
+    query.bindValue(":cin",r1);
+    query.bindValue(1,NUM);
+
+    query.bindValue(2,NOM);
+    query.bindValue(3,PRENOM);
+    query.bindValue(4,ADDRESSE);
+    query.bindValue(5,MATRICULE);
+    query.bindValue(6,MAIL);
+    return query.exec();
+
+}
+
