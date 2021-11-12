@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_supprimer->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
-    ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
+    ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
     ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->tab_voiture->setModel(V.afficher());
 }

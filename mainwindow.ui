@@ -15,14 +15,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">*{
-	background-color: rgb(170, 255, 127);
-	background-color: rgb(106, 255, 206);
+	background-color: rgb(115, 183, 255);
 	font-family : century gothic;
 	font-size : 16px;
 }
 
 QPushButton {
-    background-color: orange;
+    background-color: rgb(228, 255, 198);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -31,7 +30,7 @@ QPushButton {
     padding: 6px;
 }
 QPushButton:pressed {
-    background-color: rgb(255, 170, 127);
+    background-color: rgb(228, 255, 220);
     border-style: inset;
 }
 
@@ -44,7 +43,7 @@ QComboBox {
 }
 
 QComboBox:editable {
-    background: white;
+    background: rgb(115, 183, 255);
 }
 
 QComboBox:!editable, QComboBox::drop-down:editable {
