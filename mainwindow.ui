@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1061</width>
-    <height>679</height>
+    <width>1056</width>
+    <height>671</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -217,24 +217,6 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="le_couleur">
-        <property name="geometry">
-         <rect>
-          <x>160</x>
-          <y>260</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">     border: 2px solid gray;
-     border-radius: 10px;
-     padding: 0 8px;
-     background:rgb(255, 255, 255);
-     selection-background-color: darkgray;
- </string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_8">
         <property name="geometry">
          <rect>
@@ -299,6 +281,9 @@ subcontrol-origin: margin;
           <height>31</height>
          </rect>
         </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
        </widget>
        <widget class="QPushButton" name="pb_ajouter">
         <property name="geometry">
@@ -329,6 +314,48 @@ subcontrol-origin: margin;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Couleur&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pb_color">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>250</y>
+          <width>51</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+background-color: rgb(115, 183, 255);
+border-color: transparent;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>80</width>
+          <height>80</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_couleur">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>260</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">     border: 2px solid gray;
+     border-radius: 10px;
+     padding: 0 8px;
+     background:rgb(255, 255, 255);
+     selection-background-color: darkgray;
+ </string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
@@ -349,7 +376,7 @@ subcontrol-origin: margin;
       <widget class="QPushButton" name="pb_supprimer">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>850</x>
          <y>530</y>
          <width>131</width>
          <height>31</height>
@@ -378,7 +405,7 @@ subcontrol-origin: margin;
       <widget class="QPushButton" name="pb_modifier">
        <property name="geometry">
         <rect>
-         <x>390</x>
+         <x>550</x>
          <y>530</y>
          <width>151</width>
          <height>31</height>
@@ -417,29 +444,24 @@ subcontrol-origin: margin;
         <string>Stat</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="le_supprimer">
+      <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>870</x>
+         <x>210</x>
          <y>530</y>
-         <width>111</width>
+         <width>141</width>
          <height>31</height>
         </rect>
        </property>
-       <property name="styleSheet">
-        <string notr="true">     border: 2px solid gray;
-     border-radius: 10px;
-     padding: 0 8px;
-     background:rgb(255, 255, 255);
-     selection-background-color: darkgray;
- </string>
+       <property name="text">
+        <string>PDF</string>
        </property>
       </widget>
       <widget class="QComboBox" name="CB_modify">
        <property name="geometry">
         <rect>
-         <x>570</x>
-         <y>550</y>
+         <x>400</x>
+         <y>530</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -465,25 +487,12 @@ subcontrol-origin: margin;
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>530</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="le_modifier">
        <property name="geometry">
         <rect>
-         <x>570</x>
-         <y>510</y>
-         <width>131</width>
+         <x>720</x>
+         <y>530</y>
+         <width>121</width>
          <height>31</height>
         </rect>
        </property>
@@ -496,6 +505,23 @@ subcontrol-origin: margin;
  </string>
        </property>
       </widget>
+      <widget class="QTextEdit" name="textEdit">
+       <property name="geometry">
+        <rect>
+         <x>640</x>
+         <y>350</y>
+         <width>221</width>
+         <height>181</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'century gothic'; font-size:16px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:16px;&quot;&gt;MATRICULE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -505,7 +531,7 @@ subcontrol-origin: margin;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1061</width>
+     <width>1056</width>
      <height>26</height>
     </rect>
    </property>

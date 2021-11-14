@@ -26,9 +26,12 @@ private slots:
 
     void on_pb_modifier_clicked();
 
+    void on_pb_color_clicked();
+
 private:
     Ui::MainWindow *ui;
     Voiture V;
+
 };
 
 #endif // MAINWINDOW_H

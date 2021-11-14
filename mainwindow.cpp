@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dialog2.h"
 #include "voiture.h"
 #include <QIntValidator>
 
@@ -10,12 +11,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_modifier->setValidator(new QIntValidator(0, 9999999, this));
-    ui->le_supprimer->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
     ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->tab_voiture->setModel(V.afficher());
+    QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.jpg");
+    QIcon buttonIcon(buttonImage);
+    ui->pb_color->setIcon(buttonImage);
+    ui->pb_color->setIconSize(QSize(50,30));
 }
 
 MainWindow::~MainWindow()
@@ -62,11 +66,11 @@ void MainWindow::on_pb_supprimer_clicked()
 {
 
     Voiture V1;
-    V1.setIdClient(ui->le_supprimer->text().toInt());
+    V1.setIdClient(ui->le_modifier->text().toInt());
     bool test = V1.suprimmer(V1.getIdClient());
     if(test)
     {
-        ui->le_supprimer->clear();
+        ui->le_modifier->clear();
         ui->tab_voiture->setModel(V.afficher());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Suppression avec succes!\n"
@@ -106,4 +110,11 @@ void MainWindow::on_pb_modifier_clicked()
         msgBox.setText("Echec de modification");
     }
     msgBox.exec();
+}
+
+void MainWindow::on_pb_color_clicked()
+{
+    Dialog2 dialog;
+    dialog.setModal(true);
+    dialog.exec();
 }
