@@ -28,6 +28,8 @@ private slots:
 
     void on_pb_color_clicked();
 
+    QString hexcolor(int r, int g, int b);
+
 private:
     Ui::MainWindow *ui;
     Voiture V;

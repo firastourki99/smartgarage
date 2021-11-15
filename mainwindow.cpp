@@ -3,7 +3,7 @@
 #include "dialog2.h"
 #include "voiture.h"
 #include <QIntValidator>
-
+#include <QColor>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -15,11 +15,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
     ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
+    ui->le_couleur->setEnabled(false);
     ui->tab_voiture->setModel(V.afficher());
     QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.jpg");
     QIcon buttonIcon(buttonImage);
     ui->pb_color->setIcon(buttonImage);
     ui->pb_color->setIconSize(QSize(50,30));
+
 }
 
 MainWindow::~MainWindow()
@@ -27,6 +29,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+QString MainWindow::hexcolor(int r, int g, int b)
+{
+    return (QString) ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+}
 
 
 void MainWindow::on_pb_ajouter_clicked()
@@ -117,4 +125,5 @@ void MainWindow::on_pb_color_clicked()
     Dialog2 dialog;
     dialog.setModal(true);
     dialog.exec();
+    ui->le_couleur->setText(dialog.getRefColor());
 }

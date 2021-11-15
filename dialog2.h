@@ -19,10 +19,19 @@ public:
     {
         return m_color;
     }
+
 signals:
     void colorChanged(QColor color);
+
 private slots:
     void onColorChanged();
+
+    void on_pushButton_clicked();
+
+public slots:
+    QString getRefColor();
+
+
 private:
     Ui::Dialog2 *ui;
     QColor m_color;
