@@ -33,6 +33,10 @@ public:
     //functions
     bool ajouter();
     QSqlQueryModel * afficher();
+    QSqlQueryModel * recherche(QString);
+    QSqlQueryModel * trie();
+    QSqlQueryModel * trie2();
+    QSqlQueryModel * trie3();
     bool suprimmer(int);
     bool modifier(int&, QString&, QString&);
 private:

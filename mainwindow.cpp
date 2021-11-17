@@ -17,10 +17,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->le_couleur->setEnabled(false);
     ui->tab_voiture->setModel(V.afficher());
+    ui->tab_voiture->setModel(V.trie());
+
     QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.jpg");
     QIcon buttonIcon(buttonImage);
     ui->pb_color->setIcon(buttonImage);
     ui->pb_color->setIconSize(QSize(50,30));
+    QPixmap pix("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/recherche.png");
+    int w = ui->icon_label->width();
+    int h = ui->icon_label->height();
+    ui->icon_label->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
 }
 
@@ -126,4 +132,18 @@ void MainWindow::on_pb_color_clicked()
     dialog.setModal(true);
     dialog.exec();
     ui->le_couleur->setText(dialog.getRefColor());
+}
+
+
+
+void MainWindow::on_CB_trie_currentIndexChanged(const QString &text)
+{
+    if (text == "matricule") ui->tab_voiture->setModel(V.trie());
+    else if (text == "ID") ui->tab_voiture->setModel(V.trie2());
+    else ui->tab_voiture->setModel(V.trie3());
+}
+
+void MainWindow::on_le_recherche_textEdited(const QString &text)
+{
+    ui->tab_voiture->setModel(V.recherche(text));
 }

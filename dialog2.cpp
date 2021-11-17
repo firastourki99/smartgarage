@@ -22,7 +22,7 @@ Dialog2::~Dialog2()
 
 void Dialog2::onColorChanged()
 {
-    m_color.setRgb(ui->redSlide->value(), ui->blueSlide->value(), ui->greenSlide->value());
+    m_color.setRgb(ui->redSlide->value(),ui->greenSlide->value(), ui->blueSlide->value());
     QPalette pal = ui->displayWidget->palette();
     pal.setColor(QPalette::Window, m_color);
     ui->displayWidget->setPalette(pal);

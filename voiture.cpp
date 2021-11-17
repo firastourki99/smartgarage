@@ -123,3 +123,34 @@ bool Voiture::modifier(int &row, QString &s, QString &val)
     }
     return false;
 }
+
+QSqlQueryModel *Voiture::trie()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT * FROM VOITURE ORDER BY MATRICULE ASC");
+    return model;
+}
+
+QSqlQueryModel * Voiture::trie2()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT * FROM VOITURE ORDER BY CIN ASC");
+    return model;
+}
+
+QSqlQueryModel * Voiture::trie3()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT * FROM VOITURE ORDER BY DATE_AJOUT ASC");
+    return model;
+}
+
+QSqlQueryModel * Voiture::recherche(QString mat)
+{
+    QSqlQueryModel *mqy=new::QSqlQueryModel;
+               mqy->setQuery("select * from  VOITURE where MATRICULE like '%"+mat+"%'");
+               return mqy;
+}
+
+
+

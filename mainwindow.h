@@ -4,6 +4,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QMainWindow>
+
 #include "voiture.h"
 
 namespace Ui {
@@ -29,6 +30,10 @@ private slots:
     void on_pb_color_clicked();
 
     QString hexcolor(int r, int g, int b);
+
+    void on_CB_trie_currentIndexChanged(const QString &);
+
+    void on_le_recherche_textEdited(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
