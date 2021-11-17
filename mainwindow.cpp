@@ -6,9 +6,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->le_id->setValidator(new QIntValidator(0, 9999999, this));
+    /*-----------------------JOINTURE---------------------------*/
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery *qry = new QSqlQuery();
+    qry->prepare("SELECT cin from client");
+    qry->exec();
+    model->setQuery(*qry);
+    ui->cb_cin->setModel(model);
+
+    /*----------------------------------------------------------*/
     ui->le_modifier->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_recherche->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
     ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
@@ -16,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tab_voiture->setModel(V.afficher());
     ui->tab_voiture->setModel(V.trie());
 
-    QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.jpg");
+    QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.png");
     QIcon buttonIcon(buttonImage);
     ui->pb_color->setIcon(buttonImage);
     ui->pb_color->setIconSize(QSize(50,30));
@@ -43,7 +52,7 @@ QString MainWindow::hexcolor(int r, int g, int b)
 void MainWindow::on_pb_ajouter_clicked()
 {
     int matricule = ui->le_matricule->text().toInt();
-    int id = ui->le_id->text().toInt();
+    int id = ui->cb_cin->currentText().toInt();
     QString marque = ui->le_marque->text();
     QString modele = ui->le_modele->text();
     QString couleur = ui->le_couleur->text();
@@ -54,7 +63,6 @@ void MainWindow::on_pb_ajouter_clicked()
 
     if(test)
     {
-        ui->le_id->clear();
         ui->le_marque->clear();
         ui->le_matricule->clear();
         ui->le_couleur->clear();
@@ -103,7 +111,7 @@ void MainWindow::on_pb_modifier_clicked()
     int row =ui->le_modifier->text().toInt();
     int *b = &row;
 
-    if ((*s) == "ID") (*a) = ui->le_id->text();
+    if ((*s) == "ID") (*a) = ui->cb_cin->currentText();
     else if ((*s) == "Marque") (*a) = ui->le_marque->text();
     else if ((*s) == "Modele") (*a) = ui->le_modele->text();
     else if ((*s) == "Couleur") (*a) = ui->le_couleur->text();

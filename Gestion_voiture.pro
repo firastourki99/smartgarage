@@ -7,6 +7,7 @@
 QT       += core gui sql
 QT       += core gui sql printsupport network
 QT       += printsupport multimedia
+QT       += quick gui core widgets
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -29,6 +30,7 @@ CONFIG += c++11
 
 SOURCES += \
     dialog2.cpp \
+    dialogcharts.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -36,12 +38,14 @@ SOURCES += \
 
 HEADERS += \
     dialog2.h \
+    dialogcharts.h \
         mainwindow.h \
     connection.h \
     voiture.h
 
 FORMS += \
         dialog2.ui \
+        dialogcharts.ui \
         mainwindow.ui
 
 # Default rules for deployment.

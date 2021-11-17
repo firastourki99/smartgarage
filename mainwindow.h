@@ -11,12 +11,6 @@
 #include <QTextDocument>
 #include <QtPrintSupport/QPrinter>
 #include <QFileDialog>
-#include <QPainter>
-#include <QPrintDialog>
-#include <QTextTableCell>
-#include <QPdfWriter>
-#include <QTextBrowser>
-#include <QTableView>
 #include <QPrintDialog>
 #include "voiture.h"
 

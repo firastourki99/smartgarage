@@ -163,24 +163,6 @@ subcontrol-origin: margin;
  </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="le_id">
-        <property name="geometry">
-         <rect>
-          <x>160</x>
-          <y>110</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">     border: 2px solid gray;
-     border-radius: 10px;
-     padding: 0 8px;
-     background:rgb(255, 255, 255);
-     selection-background-color: darkgray;
- </string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="le_marque">
         <property name="geometry">
          <rect>
@@ -317,16 +299,17 @@ subcontrol-origin: margin;
        <widget class="QPushButton" name="pb_color">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>110</x>
           <y>250</y>
           <width>51</width>
           <height>41</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-background-color: rgb(115, 183, 255);
-border-color: transparent;</string>
+         <string notr="true">border-color: transparent;
+background-color: transparent;
+
+</string>
         </property>
         <property name="text">
          <string/>
@@ -354,6 +337,16 @@ border-color: transparent;</string>
      background:rgb(255, 255, 255);
      selection-background-color: darkgray;
  </string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_cin">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>111</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
         </property>
        </widget>
       </widget>
