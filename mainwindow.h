@@ -4,7 +4,20 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QMainWindow>
-
+#include "dialog2.h"
+#include "voiture.h"
+#include <QIntValidator>
+#include <QColor>
+#include <QTextDocument>
+#include <QtPrintSupport/QPrinter>
+#include <QFileDialog>
+#include <QPainter>
+#include <QPrintDialog>
+#include <QTextTableCell>
+#include <QPdfWriter>
+#include <QTextBrowser>
+#include <QTableView>
+#include <QPrintDialog>
 #include "voiture.h"
 
 namespace Ui {
@@ -34,6 +47,9 @@ private slots:
     void on_CB_trie_currentIndexChanged(const QString &);
 
     void on_le_recherche_textEdited(const QString &arg1);
+
+    void on_pb_pdf_clicked();
+
 
 private:
     Ui::MainWindow *ui;

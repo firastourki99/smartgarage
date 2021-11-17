@@ -431,7 +431,7 @@ border-color: transparent;</string>
         <string>Facture</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pb_pdf">
        <property name="geometry">
         <rect>
          <x>210</x>
