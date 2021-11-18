@@ -3,6 +3,7 @@
 #include<QString>
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include<QTableView>
 
 
 class Client
@@ -34,9 +35,18 @@ public:
 
 
     bool ajouter();
+
     QSqlQueryModel*afficher();
+    QSqlQueryModel*tri();
     bool supprimer(int );
     bool modifier(int);
+
+
+
+    void rechercher_client(QTableView * table,QString);
+    void clear(QTableView*table);
+
+
 
 
 };

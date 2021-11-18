@@ -1,5 +1,8 @@
 #include "client.h"
 
+
+
+
 Client::Client(int cin, int num ,QString nom, QString prenom,QString addresse,QString mail,QString matricule)
 {
     this->CIN=cin;
@@ -15,6 +18,7 @@ Client::Client(int cin, int num ,QString nom, QString prenom,QString addresse,QS
 bool Client::ajouter()
 {
 QSqlQuery query;
+
 QString res1=QString::number(CIN);
 QString res2=QString::number(NUM);
 query.prepare("INSERT INTO CLIENT(CIN,NOM,PRENOM,ADRESSE,NUMERO_TEL,MATRICULE_VOITURE,MAIL)""VALUES(:cin,:nom,:prenom,:adresse,:numero_tel,:matrcule_voiture,:mail)");
@@ -27,7 +31,13 @@ query.bindValue(5,MAIL);
 query.bindValue(6,MATRICULE);
 
 
+
+
+
 return query.exec();
+
+
+
 }
 
 bool Client::supprimer( int cin)
@@ -70,3 +80,31 @@ bool Client::modifier(int cin)
 
 }
 
+QSqlQueryModel *Client::tri()
+{QSqlQueryModel *model=new QSqlQueryModel();
+
+model->setQuery("select * from client order by cin");
+            return model;
+
+
+
+}
+
+void Client::rechercher_client(QTableView *table, QString cin)
+    {
+        QSqlQueryModel *model=new QSqlQueryModel();
+        QSqlQuery *query =new QSqlQuery();
+        query->prepare("select * from client where regexp_like(cin,:cin);");
+        query->bindValue(":cin",cin);
+        query->exec();
+        model->setQuery(*query);
+        table->setModel(model);
+        table->show();
+
+    }
+void Client::clear(QTableView *table)
+    {
+        QSqlQueryModel *model=new QSqlQueryModel();
+        model->clear();
+        table->setModel(model);
+    }
