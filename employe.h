@@ -27,7 +27,7 @@ public:
     bool ajouter();
     bool supprimer(int);
     QSqlQueryModel* afficher();
-    //QSqlQueryModel* afficherr();
+    QSqlQueryModel* afficherr();
     bool editer();
     void rechercher_emp(QTableView * table,QString);
     void clear(QTableView * table);

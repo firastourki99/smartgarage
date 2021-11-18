@@ -77,17 +77,18 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
 
               return model;
     }
-    /*QSqlQueryModel* employe::afficherr()
+    QSqlQueryModel* employe::afficherr()
     {
         QSqlQueryModel *model = new QSqlQueryModel;
         QSqlQuery *qry = new QSqlQuery();
               qry->prepare("SELECT id FROM employe");
               qry->exec();
               model->setQuery(*qry);
+              return model;
 
 
 
-    }*/
+    }
     bool employe::editer(){
         QSqlQuery query;
         QString r= QString::number(id);

@@ -21,7 +21,7 @@ Dialog_stat::Dialog_stat(QWidget *parent) :
     ui(new Ui::Dialog_stat)
 {
     ui->setupUi(this);
-    // set dark background gradient:
+    //set dark background gradient:
              QLinearGradient gradient(0, 0, 0, 400);
              gradient.setColorAt(0, QColor(30, 142, 112));
              gradient.setColorAt(0.38, QColor(47, 174, 150));

@@ -19,13 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
-    QSqlQueryModel *model = new QSqlQueryModel;
-    QSqlQuery *qry = new QSqlQuery();
-          qry->prepare("SELECT id FROM employe");
-          qry->exec();
-          model->setQuery(*qry);
-    ui->comboBox_fonction->setModel(model);
-    affiche();
+    ui->comboBox_fonction->setModel(e.afficherr());
+
 
 
 }
@@ -36,6 +31,7 @@ void MainWindow::affiche()
     proxy_employe ->setFilterCaseSensitivity(Qt::CaseInsensitive);
     proxy_employe ->setFilterKeyColumn(selected_employe);
     ui->tab_employe->setModel(proxy_employe );
+
 
 }
 
@@ -70,6 +66,7 @@ void MainWindow::on_ajouter_clicked()
                     QObject::tr("ajout effectue\n"
                                 "Click ok to exit."), QMessageBox::Ok);
         ui->tab_employe->setModel(e.afficher());
+        ui->comboBox_fonction->setModel(e.afficherr());
 
 }
     else
@@ -89,6 +86,7 @@ void MainWindow::on_supprimer_clicked()
                     QObject::tr("suppression effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Ok);
         ui->tab_employe->setModel(e.afficher());
+        ui->comboBox_fonction->setModel(e.afficherr());
 
 }
     else
@@ -173,6 +171,7 @@ void MainWindow::on_modifier_clicked()
                         QObject::tr("employe edité.\n"
                                     "Click Ok to exit."), QMessageBox::Ok);
     ui->tab_employe->setModel(e.afficher());
+    ui->comboBox_fonction->setModel(e.afficherr());
 
 
     }
