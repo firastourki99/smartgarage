@@ -13,7 +13,25 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QCustomPlot" name="widget_stat" native="true">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>160</y>
+     <width>371</width>
+     <height>291</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

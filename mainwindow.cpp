@@ -6,21 +6,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    /*-----------------------JOINTURE---------------------------*/
-    QSqlQueryModel * model = new QSqlQueryModel();
-    QSqlQuery *qry = new QSqlQuery();
-    qry->prepare("SELECT cin from client");
-    qry->exec();
-    model->setQuery(*qry);
-    ui->cb_cin->setModel(model);
 
-    /*----------------------------------------------------------*/
+    mise_a_jour_id_client();
+
     ui->le_modifier->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_recherche->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
     ui->le_modele->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
-    ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
+    //ui->le_couleur->setValidator(new QRegExpValidator( QRegExp("[A-Za-z1-9\\s]{0,12}"), this ));
     ui->le_couleur->setEnabled(false);
     ui->tab_voiture->setModel(V.afficher());
     ui->tab_voiture->setModel(V.trie());
@@ -196,11 +190,34 @@ void MainWindow::on_pb_pdf_clicked()
     document->setHtml(strStream);
 
     QPrinter printer;
-
     QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
     if (dialog->exec() == QDialog::Accepted) {
         document->print(&printer);
     }
 
     delete document;
+}
+
+
+void MainWindow::mise_a_jour_id_client()
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    QSqlQuery *qry = new QSqlQuery();
+    qry->prepare("SELECT cin from client");
+    qry->exec();
+    model->setQuery(*qry);
+    ui->cb_cin->setModel(model);
+}
+
+void MainWindow::on_cb_cin_activated()
+{
+    mise_a_jour_id_client();
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    DialogCharts dialog;
+    dialog.setModal(true);
+    dialog.exec();
 }

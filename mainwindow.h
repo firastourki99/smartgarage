@@ -5,15 +5,22 @@
 #include <QMessageBox>
 #include <QMainWindow>
 #include "dialog2.h"
+#include "dialogcharts.h"
 #include "voiture.h"
 #include <QIntValidator>
 #include <QColor>
+#include <QtCharts>
+#include <QChart>
+#include <QPieSeries>
 #include <QTextDocument>
 #include <QtPrintSupport/QPrinter>
 #include <QFileDialog>
 #include <QPrintDialog>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QChartView>
 #include "voiture.h"
 
+QT_CHARTS_USE_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
@@ -44,6 +51,12 @@ private slots:
 
     void on_pb_pdf_clicked();
 
+    void mise_a_jour_id_client();
+
+
+    void on_cb_cin_activated();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

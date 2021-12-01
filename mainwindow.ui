@@ -411,7 +411,7 @@ background-color: transparent;
         <string>Modifier</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pb_facture">
        <property name="geometry">
         <rect>
          <x>10</x>

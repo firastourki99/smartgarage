@@ -148,8 +148,8 @@ QSqlQueryModel * Voiture::trie3()
 QSqlQueryModel * Voiture::recherche(QString mat)
 {
     QSqlQueryModel *mqy=new::QSqlQueryModel;
-               mqy->setQuery("select * from  VOITURE where MATRICULE like '%"+mat+"%'");
-               return mqy;
+    mqy->setQuery("select * from  VOITURE where MATRICULE like '%"+mat+"%'");
+    return mqy;
 }
 
 

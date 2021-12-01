@@ -7,11 +7,12 @@
 QT       += core gui sql
 QT       += core gui sql printsupport network
 QT       += printsupport multimedia
-QT       += quick gui core widgets
-
+QT       += core widgets charts
+QT       += core gui charts
+QT       += core
+QT       += core gui sql printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = Gestion_voiture
 TEMPLATE = app
 
@@ -34,6 +35,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    qcustomplot.cpp \
     voiture.cpp
 
 HEADERS += \
@@ -41,6 +43,7 @@ HEADERS += \
     dialogcharts.h \
         mainwindow.h \
     connection.h \
+    qcustomplot.h \
     voiture.h
 
 FORMS += \
