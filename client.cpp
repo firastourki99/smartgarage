@@ -62,6 +62,21 @@ model->setHeaderData(5,Qt::Horizontal,QObject::tr("MATRICULE"));
 model->setHeaderData(6,Qt::Horizontal,QObject::tr("MAIL"));
 return model;
 }
+
+QSqlQueryModel*Client::afficherjoin()
+{
+QSqlQueryModel * model=new QSqlQueryModel();
+model->setQuery("select * from CLIENT INNER JOIN VOITURE ON CLIENT.MATRICULE_VOITURE = VOITURE.MATRICULE");
+/*model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
+model->setHeaderData(1,Qt::Horizontal,QObject::tr("NUM"));
+model->setHeaderData(2,Qt::Horizontal,QObject::tr("NOM"));
+model->setHeaderData(3,Qt::Horizontal,QObject::tr("PRENOM"));
+model->setHeaderData(4,Qt::Horizontal,QObject::tr("ADDRESSE"));
+model->setHeaderData(5,Qt::Horizontal,QObject::tr("MATRICULE"));
+model->setHeaderData(6,Qt::Horizontal,QObject::tr("MAIL"));*/
+return model;
+}
+
 bool Client::modifier(int cin)
 {
      QSqlQuery query;
@@ -90,21 +105,23 @@ model->setQuery("select * from client order by cin");
 
 }
 
-void Client::rechercher_client(QTableView *table, QString cin)
-    {
-        QSqlQueryModel *model=new QSqlQueryModel();
-        QSqlQuery *query =new QSqlQuery();
-        query->prepare("select * from client where regexp_like(cin,:cin);");
-        query->bindValue(":cin",cin);
-        query->exec();
-        model->setQuery(*query);
-        table->setModel(model);
-        table->show();
 
-    }
-void Client::clear(QTableView *table)
-    {
-        QSqlQueryModel *model=new QSqlQueryModel();
-        model->clear();
-        table->setModel(model);
-    }
+
+
+QSqlQueryModel *Client::rechercher(QString cinn)
+{
+    // QString res= QString::number(cinn);
+     QSqlQueryModel *model=new QSqlQueryModel();
+      model->setQuery("select * from CLIENT where CIN LIKE '"+cinn+"%'" );
+
+    /*  model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
+      model->setHeaderData(1,Qt::Horizontal,QObject::tr("NUM"));
+      model->setHeaderData(2,Qt::Horizontal,QObject::tr("NOM"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("PRENOM"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("ADRESSE"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("MATRICULE"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("MAIL"));
+
+*/
+
+      return model; }

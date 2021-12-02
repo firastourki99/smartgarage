@@ -28,18 +28,32 @@ private slots:
     void on_pdf_clicked();
 
 
-
-
-
-
     void on_trier_clicked();
 
-    void on_recherche_clicked();
 
-    void on_line_recherche_textChanged(const QString &arg1);
     void affiche();
 
     void on_comboBox_currentIndexChanged(int index);
+
+
+    void on_search_windowIconTextChanged(const QString &iconText);
+
+    void on_search_clicked();
+
+    void on_lecin2_textChanged(const QString &arg1);
+
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_ajoutcarte_clicked();
+
+    void on_supprimercarte_clicked();
+
+    void on_modifiercarte_clicked();
+
+    void on_affichercarte_clicked();
 
 private:
     Ui::MainWindow *ui;

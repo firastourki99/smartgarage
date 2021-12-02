@@ -37,13 +37,16 @@ public:
     bool ajouter();
 
     QSqlQueryModel*afficher();
+        QSqlQueryModel*afficherjoin();
     QSqlQueryModel*tri();
     bool supprimer(int );
     bool modifier(int);
 
 
+QSqlQueryModel *on_search_windowIconTextChangedQ();
 
-    void rechercher_client(QTableView * table,QString);
+QSqlQueryModel*rechercher(QString);
+
     void clear(QTableView*table);
 
 

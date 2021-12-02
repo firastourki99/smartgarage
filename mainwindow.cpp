@@ -9,6 +9,7 @@
 #include <QTextDocument>
 #include <QTextStream>
 #include <QPrintDialog>
+#include "carte.h"
 
 
 
@@ -18,13 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    carte c;
+        ui->tableView_3->setModel(c.afficher());
+
     ui->tableView->setModel(Etmp.afficher());
 
     ui->lenum->setValidator(new QIntValidator(0, 9999999, this));
     ui->lecin->setValidator(new QIntValidator(0, 9999999,this));
-    ui->lecin1->setValidator(new QIntValidator(0, 9999999,this));
-    ui->lecin2->setValidator(new QIntValidator(0, 9999999,this));
-
 
 }
 
@@ -37,6 +38,12 @@ void MainWindow::affiche()
     ui->tableView->setModel(proxy_client );
 
 }
+
+
+
+
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -45,7 +52,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    int     cin=ui->lecin2->text().toInt();
+    int     cin=ui->lecin->text().toInt();
     bool test=Etmp.supprimer(cin);
     if(test)
     {
@@ -63,14 +70,14 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_modifier_clicked()
 {
-    int CIN =ui->lecin1->text().toInt();
-        int NUM =ui->lenum1->text().toInt();
+    int CIN =ui->lecin->text().toInt();
+        int NUM =ui->lenum->text().toInt();
 
-           QString NOM=ui->lenom1->text();
-           QString PRENOM=ui->leprenom1->text();
-           QString ADDRESSE=ui->lead1->text();
-           QString MAIL=ui->lemail1->text();
-           QString MATRICULE =ui->lemat1->text();
+           QString NOM=ui->lenom->text();
+           QString PRENOM=ui->leprenom->text();
+           QString ADDRESSE=ui->lead->text();
+           QString MAIL=ui->lemail->text();
+           QString MATRICULE =ui->lemat->text();
 
            Client s(CIN,NUM,NOM,PRENOM,ADDRESSE,MAIL,MATRICULE);
          bool test=s.modifier(CIN);
@@ -212,14 +219,114 @@ void MainWindow::on_trier_clicked()
 {
     ui->tableView->setModel(Etmp.tri());
 }
+
 void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
-    selected_client=ui->comboBox->currentIndex();
+
     affiche();
 }
 
-void MainWindow::on_line_recherche_textChanged(const QString &arg1)
+
+
+
+
+
+
+
+void MainWindow::on_search_windowIconTextChanged(const QString &arg1)
 {
-    proxy_client->setFilterFixedString(arg1);
+    QString ch = arg1;
+
+                    if (ch=="")
+                    {
+                        ui->tableView->setModel(Etmp.afficher());
+                    }
+                    else {
+                      ui->tableView->setModel(Etmp.rechercher(ch)) ;
+
+                    }
 }
 
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+
+     ui->tableView_2->setModel(Etmp.afficherjoin());
+}
+
+void MainWindow::on_lecin2_textChanged(const QString &arg1)
+{
+    QString ch = arg1;
+
+                    if (ch=="")
+                    {
+                        ui->tableView->setModel(Etmp.afficher());
+                    }
+                    else {
+                      ui->tableView->setModel(Etmp.rechercher(ch)) ;
+
+                    }
+}
+
+void MainWindow::on_ajoutcarte_clicked()
+{
+    QMessageBox msgBox;
+
+   carte c(ui->cin3->text(),ui->point->text());
+       if (c.ajouter())
+       {
+       msgBox.setText("Ajout avec succes");
+       ui->tableView_2->setModel(c.afficher());
+       }
+       else
+       {
+          msgBox.setText("Probleme d'ajout");
+       }
+       msgBox.exec();
+}
+
+void MainWindow::on_supprimercarte_clicked()
+{ QMessageBox msgBox;
+    carte c(ui->cin3->text(),ui->point->text());
+
+        if (c.supprimer())
+        {
+             msgBox.setText("Suppression avec succees");
+             ui->tableView_3->setModel(c.afficher());
+        }
+        else
+            msgBox.setText("Probleme de suppresion");
+        msgBox.exec();
+
+}
+
+void MainWindow::on_modifiercarte_clicked()
+{
+    QMessageBox msgBox;
+    carte c(ui->cin3->text(),ui->point->text());
+       if (c.update())
+       {
+       msgBox.setText("Mise a jour avec succes");
+       ui->tableView_3->setModel(c.afficher());
+       }
+       else
+       {
+          msgBox.setText("Probleme de mise a jour");
+       }
+       msgBox.exec();
+
+}
+
+void MainWindow::on_affichercarte_clicked()
+{ QMessageBox msgBox;
+    carte c;
+        ui->tableView_3->setModel(c.afficher());
+
+
+}
