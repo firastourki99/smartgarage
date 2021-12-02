@@ -55,6 +55,10 @@ private slots:
 
     void on_affichercarte_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_lecin2_textEdited(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 

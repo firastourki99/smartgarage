@@ -330,3 +330,19 @@ void MainWindow::on_affichercarte_clicked()
 
 
 }
+
+
+
+void MainWindow::on_lecin2_textEdited(const QString &arg1)
+{
+    QString ch = arg1;
+
+                    if (ch=="")
+                    {
+                        ui->tableView->setModel(Etmp.afficher());
+                    }
+                    else {
+                      ui->tableView->setModel(Etmp.rechercher(ch)) ;
+
+                    }
+}

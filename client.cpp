@@ -67,13 +67,13 @@ QSqlQueryModel*Client::afficherjoin()
 {
 QSqlQueryModel * model=new QSqlQueryModel();
 model->setQuery("select * from CLIENT INNER JOIN VOITURE ON CLIENT.MATRICULE_VOITURE = VOITURE.MATRICULE");
-/*model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
+model->setHeaderData(0,Qt::Horizontal,QObject::tr("CIN"));
 model->setHeaderData(1,Qt::Horizontal,QObject::tr("NUM"));
 model->setHeaderData(2,Qt::Horizontal,QObject::tr("NOM"));
 model->setHeaderData(3,Qt::Horizontal,QObject::tr("PRENOM"));
 model->setHeaderData(4,Qt::Horizontal,QObject::tr("ADDRESSE"));
 model->setHeaderData(5,Qt::Horizontal,QObject::tr("MATRICULE"));
-model->setHeaderData(6,Qt::Horizontal,QObject::tr("MAIL"));*/
+model->setHeaderData(6,Qt::Horizontal,QObject::tr("MAIL"));
 return model;
 }
 
