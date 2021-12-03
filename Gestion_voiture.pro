@@ -31,24 +31,22 @@ CONFIG += c++11
 
 SOURCES += \
     dialog2.cpp \
-    dialogcharts.cpp \
+    facture.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    qcustomplot.cpp \
     voiture.cpp
 
 HEADERS += \
     dialog2.h \
-    dialogcharts.h \
+    facture.h \
         mainwindow.h \
     connection.h \
-    qcustomplot.h \
     voiture.h
 
 FORMS += \
         dialog2.ui \
-        dialogcharts.ui \
+        facture.ui \
         mainwindow.ui
 
 # Default rules for deployment.
@@ -57,7 +55,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    logos.qrc
+
 
 DISTFILES += \
     recherche.png

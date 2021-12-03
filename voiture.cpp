@@ -57,6 +57,7 @@ QSqlQueryModel * Voiture::afficher()
           model->setHeaderData(3, Qt::Horizontal, QObject::tr("Couleur"));
           model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date"));
           model->setHeaderData(5, Qt::Horizontal, QObject::tr("CIN"));
+          model->setHeaderData(6, Qt::Horizontal, QObject::tr("etat"));
 
     return model;
 }
@@ -114,6 +115,13 @@ bool Voiture::modifier(int &row, QString &s, QString &val)
             {
                 query.prepare("UPDATE voiture SET couleur =:couleur WHERE matricule=:mat");
                 query.bindValue(":couleur", val);
+                query.bindValue(":mat", row);
+                return query.exec();
+            }
+            else if (s == "etat")
+            {
+                query.prepare("UPDATE voiture SET etat =:etat WHERE matricule=:mat");
+                query.bindValue(":etat", val);
                 query.bindValue(":mat", row);
                 return query.exec();
             }

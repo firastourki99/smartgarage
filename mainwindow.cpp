@@ -217,7 +217,52 @@ void MainWindow::on_cb_cin_activated()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    DialogCharts dialog;
-    dialog.setModal(true);
-    dialog.exec();
+    QSqlQuery query ;
+    query.exec("SELECT etat FROM voiture");
+    int etat_t = 0;
+    int etat_f = 0;
+    while(query.next())
+    {
+        if (query.value(0) == 1)
+        {
+            etat_t ++;
+        }
+        else if(query.value(0) == 0)
+        {
+            etat_f ++;
+        }
+    }
+    qDebug() <<etat_f;
+    qDebug() <<etat_t;
+    float total = etat_t + etat_f;
+    float t = etat_t /total;
+    float f = etat_f /total;
+    QPieSeries *series = new QPieSeries();
+    series->setHoleSize(0.35);//Set the size of the inner hole of the ring [0-1]
+    series->append("Réparées",t);//Add a block for repaired cars
+    series->append("Non réparées", f);//Add a block for non repaired cars
+    QPieSlice *slice0 = series->slices().at(0);//Add a slice, accounting for 30%, and instantiate a QPieSlice to point to the slice
+    slice0->setExploded(true);//Let the arc block separate from the main ring
+    slice0->setLabelVisible(true);//Display the label of the arc block
+    QPieSlice *slice1 = series->slices().at(1);
+    slice1->setExploded(true);
+    slice1->setLabelVisible(true);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Les etats des voitures");
+    chart->setTheme(QChart::ChartThemeLight);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->legend()->setFont(QFont("Arial", 7));
+    //chart->legend()->hide();
+
+    QChartView *chartView = new QChartView(chart);//Instantiate QChartView control
+    chartView->setRenderHint(QPainter::Antialiasing);//Set prompt (QPainter::Antialiasing eliminates aliasing)
+    this->setCentralWidget(chartView);
+    chartView->show();
+}
+
+void MainWindow::on_pb_facture_clicked()
+{
+
 }

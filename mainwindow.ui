@@ -466,6 +466,11 @@ background-color: transparent;
          <string>Couleur</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Etat</string>
+        </property>
+       </item>
       </widget>
       <widget class="QLineEdit" name="le_modifier">
        <property name="geometry">
@@ -558,9 +563,6 @@ background-color: transparent;
        <property name="text">
         <string/>
        </property>
-       <property name="pixmap">
-        <pixmap resource="logos.qrc">:/recherche.png</pixmap>
-       </property>
       </widget>
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
@@ -600,8 +602,6 @@ background-color: transparent;
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="logos.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

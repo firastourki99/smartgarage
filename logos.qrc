@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>colors.png</file>
-        <file>recherche.png</file>
-    </qresource>
-</RCC>

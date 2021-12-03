@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include <QMainWindow>
 #include "dialog2.h"
-#include "dialogcharts.h"
 #include "voiture.h"
 #include <QIntValidator>
 #include <QColor>
@@ -57,6 +56,8 @@ private slots:
     void on_cb_cin_activated();
 
     void on_pushButton_2_clicked();
+
+    void on_pb_facture_clicked();
 
 private:
     Ui::MainWindow *ui;
