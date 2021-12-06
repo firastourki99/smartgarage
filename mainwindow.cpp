@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int w = ui->icon_label->width();
     int h = ui->icon_label->height();
     ui->icon_label->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
-
 }
 
 MainWindow::~MainWindow()
@@ -232,8 +231,6 @@ void MainWindow::on_pushButton_2_clicked()
             etat_f ++;
         }
     }
-    qDebug() <<etat_f;
-    qDebug() <<etat_t;
     float total = etat_t + etat_f;
     float t = etat_t /total;
     float f = etat_f /total;
@@ -258,8 +255,9 @@ void MainWindow::on_pushButton_2_clicked()
 
     QChartView *chartView = new QChartView(chart);//Instantiate QChartView control
     chartView->setRenderHint(QPainter::Antialiasing);//Set prompt (QPainter::Antialiasing eliminates aliasing)
-    this->setCentralWidget(chartView);
+    chartView->resize(800,600);
     chartView->show();
+
 }
 
 void MainWindow::on_pb_facture_clicked()

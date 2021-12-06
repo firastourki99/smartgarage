@@ -33,8 +33,9 @@ void facture::on_pb_facture2_clicked()
 }
 // bool facture::ajouter(float prix)
 // {
+
 //    QSqlQuery query;
-//          query.prepare("INSERT INTO facture (num, CIN, marque, modele, couleur, DATE_AJOUT) "
+//          query.prepare("INSERT INTO facture (num, CIN, marque, modele, couleur, DATE_AJOUT)"
 //                        "VALUES (:matricule, :IdClient, :marque, :modele, :couleur, :date)");
 //        query.bindValue(":IdClient", id_string);
 
