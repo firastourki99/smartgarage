@@ -8,6 +8,11 @@
 #include <QFileDialog>
 #include <QTextDocument>
 #include <QSqlQuery>
+#include <QPieSeries>
+#include <QtCharts>
+#include <QChart>
+
+
 
 
 
@@ -20,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
     ui->comboBox_fonction->setModel(e.afficherr());
+    affiche();
 
 
 
@@ -56,7 +62,7 @@ void MainWindow::on_ajouter_clicked()
     QString nom=ui->NOM->text();
     QString prenom=ui->PRENOM->text();
     QString email=ui->EMAIL->text();
-    QString fonction=ui->FONCTION->text();
+    QString fonction=ui->comboBox_fonction->currentText();
     QString salaire=ui->SALAIRE->text();
     employe e(id,nom,prenom,email,fonction,salaire);
     bool test=e.ajouter();
@@ -156,7 +162,7 @@ void MainWindow::on_modifier_clicked()
         QString nom=ui->NOM->text();
         QString prenom=ui->PRENOM->text();
         QString email=ui->EMAIL->text();
-        QString fonction=ui->FONCTION->text();
+        QString fonction=ui->comboBox_fonction->currentText();
         QString salaire=ui->SALAIRE->text();
 
 
@@ -227,6 +233,54 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_stat_clicked()
 {
-    dialog_stat = new Dialog_stat(this);
-    dialog_stat->show();
+
+    QSqlQuery query ;
+        query.exec("SELECT fonction FROM employe");
+        int v = 0;
+        int d = 0;
+        while(query.next())
+        {
+            if (query.value(0) == "vidange")
+            {
+                v ++;
+            }
+            else if(query.value(0) == "diagnostic")
+            {
+                d ++;
+            }
+        }
+        qDebug() <<v;
+        qDebug() <<d;
+        float total = d + v;
+        float t = d /total;
+        float f = v /total;
+        QPieSeries *series = new QPieSeries();
+        series->setHoleSize(0.35);//Set the size of the inner hole of the ring [0-1]
+        series->append("diagnostic",t);//Add a block for repaired cars
+        series->append("vidange", f);//Add a block for non repaired cars
+        QPieSlice *slice0 = series->slices().at(0);//Add a slice, accounting for 30%, and instantiate a QPieSlice to point to the slice
+        slice0->setExploded(true);//Let the arc block separate from the main ring
+        slice0->setLabelVisible(true);//Display the label of the arc block
+        QPieSlice *slice1 = series->slices().at(1);
+        slice1->setExploded(true);
+        slice1->setLabelVisible(true);
+
+        QChart *chart = new QChart();
+        chart->addSeries(series);
+        chart->setTitle("Les services des employes");
+        chart->setTheme(QChart::ChartThemeLight);
+        chart->legend()->setAlignment(Qt::AlignBottom);
+        chart->legend()->setFont(QFont("Arial", 7));
+        //chart->legend()->hide();
+
+        QChartView *chartView = new QChartView(chart);//Instantiate QChartView control
+        chartView->setRenderHint(QPainter::Antialiasing);//Set prompt (QPainter::Antialiasing eliminates aliasing)
+        chartView->resize(800,600);
+        chartView->show();
+}
+
+void MainWindow::on_comboBox_fonction_activated(const QString &arg1)
+{
+
+
 }

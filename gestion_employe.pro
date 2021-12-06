@@ -6,6 +6,7 @@
 
 QT       += core gui sql printsupport network
 QT += sql
+QT += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,12 +29,10 @@ CONFIG += c++11
 
 SOURCES += \
     dialog_email.cpp \
-    dialog_stat.cpp \
     employe.cpp \
         main.cpp \
     connection.cpp \
     mainwindow.cpp \
-    qcustomplot.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -42,12 +41,10 @@ HEADERS += \
     employe.h \
     connection.h \
     mainwindow.h \
-    qcustomplot.h \
     smtp.h
 
 FORMS += \
         dialog_email.ui \
-        dialog_stat.ui \
         mainwindow.ui
 
 # Default rules for deployment.

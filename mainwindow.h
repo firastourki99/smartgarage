@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 #include "employe.h"
 #include "dialog_email.h"
-#include "dialog_stat.h"
 #include <QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrintDialog>
@@ -59,10 +58,12 @@ private slots:
    void on_pushButton_clicked();
    void on_stat_clicked();
 
+   void on_comboBox_fonction_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     Dialog_email *dialog_email;
-    Dialog_stat *dialog_stat;
+
     employe e;
 
 

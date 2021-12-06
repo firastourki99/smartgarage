@@ -81,7 +81,7 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
     {
         QSqlQueryModel *model = new QSqlQueryModel;
         QSqlQuery *qry = new QSqlQuery();
-              qry->prepare("SELECT id FROM employe");
+              qry->prepare("SELECT nom FROM service");
               qry->exec();
               model->setQuery(*qry);
               return model;
@@ -92,7 +92,7 @@ employe::employe(int id,QString nom,QString prenom,QString email,QString fonctio
     bool employe::editer(){
         QSqlQuery query;
         QString r= QString::number(id);
-        query.prepare("UPDATE employe SET id=:id,nom=:nom,prenom=:prenom,email=:email,fonction=:fonction,salaire=:salaire WHERE id=:id");
+        query.prepare("UPDATE employe SET nom=:nom,prenom=:prenom,email=:email,fonction=:fonction,salaire=:salaire WHERE id=:id");
        query.bindValue(":id",r);
        query.bindValue(":nom",nom);
        query.bindValue(":prenom",prenom);

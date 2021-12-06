@@ -268,16 +268,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QLineEdit" name="FONCTION">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>270</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
    </widget>
   </widget>
