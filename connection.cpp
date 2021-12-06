@@ -1,6 +1,5 @@
 #include "connection.h"
 
-//test tutoriel git
 
 Connection::Connection()
 {
@@ -10,9 +9,9 @@ Connection::Connection()
 bool Connection::createconnect()
 {bool test=false;
 QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-db.setDatabaseName("mybase");
-db.setUserName("maroua");//inserer nom de l'utilisateur
-db.setPassword("maroua");//inserer mot de passe de cet utilisateur
+db.setDatabaseName("client1");
+db.setUserName("firas1");
+db.setPassword("firas1");
 
 if (db.open())
 test=true;
@@ -23,3 +22,4 @@ test=true;
 
     return  test;
 }
+void Connection::closeconnection(){db.close();}
