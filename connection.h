@@ -5,11 +5,11 @@
 #include <QSqlQuery>
 
 class Connection
-
-{ QSqlDatabase db;
+{
+    QSqlDatabase db;
 public:
     Connection();
-    bool createconnect();
+    bool createconnection();
     void closeconnection();
 };
 

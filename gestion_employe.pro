@@ -1,39 +1,67 @@
-QT       += core gui
-QT +=sql
-QT += printsupport
+#-------------------------------------------------
+#
+# Project created by QtCreator 2018-10-26T21:45:23
+#
+#-------------------------------------------------
+
+QT       += core gui sql printsupport network
+QT += sql
+QT += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+TARGET = Atelier_Connexion
+TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
-# any Qt feature that has been marked deprecated (the exact warnings
+# any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-# You can also make your code fail to compile if it uses deprecated APIs.
+# You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+CONFIG += c++11
+
+
 SOURCES += \
     carte.cpp \
     client.cpp \
-    connection.cpp \
+    dialog_email.cpp \
+    employe.cpp \
     firas.cpp \
-    main.cpp
+        main.cpp \
+    connection.cpp \
+    mainwindow.cpp \
+    menu.cpp \
+    smtp.cpp
 
 HEADERS += \
     carte.h \
     client.h \
+    dialog_email.h \
+    dialog_stat.h \
+    employe.h \
     connection.h \
-    firas.h
+    firas.h \
+    mainwindow.h \
+    menu.h \
+    smtp.h
 
 FORMS += \
-    firas.ui
+        dialog_email.ui \
+        firas.ui \
+        mainwindow.ui \
+        menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+SUBDIRS += \
+    cllient.pro \
+    smtp.pro

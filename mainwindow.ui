@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1078</width>
-    <height>604</height>
+    <width>975</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,440 +18,267 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
-      <width>1031</width>
-      <height>511</height>
+      <y>30</y>
+      <width>911</width>
+      <height>611</height>
      </rect>
     </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>ajouter un client</string>
-     </attribute>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>cin</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>num</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>100</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>nom</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>140</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>prenom</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>20</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>adresse</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>60</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>mail</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>100</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>matricule</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lecin">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>20</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lenum">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>60</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lenom">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>100</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="leprenom">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>140</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lead">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>20</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lemail">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>60</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lemat">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>100</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="ajouter">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>370</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>ajouter</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="modifier">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>370</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>modifier</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>410</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>supprimer</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lecin2">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>380</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>590</x>
-        <y>380</y>
-        <width>41</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>cin</string>
-      </property>
-     </widget>
-     <widget class="QTableView" name="tableView">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>20</y>
-        <width>661</width>
-        <height>171</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="trier">
-      <property name="geometry">
-       <rect>
-        <x>370</x>
-        <y>450</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>trier la liste</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pdf">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>450</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Generer PDF</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="search">
-      <property name="geometry">
-       <rect>
-        <x>480</x>
-        <y>410</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Rechercher</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>580</x>
-        <y>410</y>
-        <width>141</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Generer carte fidélité</string>
-      </property>
-     </widget>
-     <widget class="QTableView" name="tableView_2">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>200</y>
-        <width>661</width>
-        <height>141</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>580</x>
-        <y>450</y>
-        <width>261</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Afficher listes voitures relatives aux clients</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Carte fidélité </string>
+      <string>gestion employe</string>
      </attribute>
-     <widget class="QPushButton" name="ajoutcarte">
+     <widget class="QTableView" name="tab_employe">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>290</y>
-        <width>121</width>
-        <height>31</height>
+        <x>320</x>
+        <y>70</y>
+        <width>541</width>
+        <height>441</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>530</y>
+        <width>176</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PDF">
+      <property name="geometry">
+       <rect>
+        <x>748</x>
+        <y>521</y>
+        <width>112</width>
+        <height>34</height>
        </rect>
       </property>
       <property name="text">
-       <string>Ajouter</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="supprimercarte">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>290</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="modifiercarte">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>290</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Modifier</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="affichercarte">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>290</y>
-        <width>93</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Afficher</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="cin3">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>61</y>
-        <width>111</width>
-        <height>31</height>
-       </rect>
+       <string>pdf</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>65</y>
-        <width>71</width>
-        <height>21</height>
+        <x>320</x>
+        <y>530</y>
+        <width>70</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>CIN</string>
+       <string>recherche</string>
       </property>
      </widget>
-     <widget class="QTableView" name="tableView_3">
+     <widget class="QComboBox" name="comboBox">
       <property name="geometry">
        <rect>
-        <x>315</x>
-        <y>0</y>
-        <width>551</width>
-        <height>261</height>
+        <x>410</x>
+        <y>530</y>
+        <width>92</width>
+        <height>26</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>prenom</string>
+       </property>
+      </item>
      </widget>
-     <widget class="QLineEdit" name="point">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>120</y>
-        <width>113</width>
-        <height>31</height>
+        <x>60</x>
+        <y>70</y>
+        <width>241</width>
+        <height>208</height>
        </rect>
       </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>id</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="EMAIL"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="PRENOM"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>prenom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>salaire</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="NOM"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>nom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="SALAIRE"/>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>fonction</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="ID"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="comboBox_fonction"/>
+       </item>
+      </layout>
      </widget>
-     <widget class="QLabel" name="label_9">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>130</y>
-        <width>81</width>
-        <height>21</height>
+        <x>79</x>
+        <y>472</y>
+        <width>201</width>
+        <height>67</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>        ID       </string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="IDS"/>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QPushButton" name="supprimer">
+         <property name="text">
+          <string>supprimer</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>300</y>
+        <width>232</width>
+        <height>116</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="ajouter">
+         <property name="text">
+          <string>ajouter</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="modifier">
+         <property name="text">
+          <string>modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QComboBox" name="comboBox_2">
+         <item>
+          <property name="text">
+           <string>id</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>nom</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>fonction</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="trier">
+         <property name="text">
+          <string>trier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>email</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="stat">
+         <property name="text">
+          <string>stat</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>20</y>
+        <width>112</width>
+        <height>34</height>
        </rect>
       </property>
       <property name="text">
-       <string>POINT</string>
+       <string>PushButton</string>
       </property>
      </widget>
     </widget>
@@ -462,8 +289,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1078</width>
-     <height>26</height>
+     <width>975</width>
+     <height>30</height>
     </rect>
    </property>
   </widget>

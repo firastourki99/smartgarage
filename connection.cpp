@@ -1,17 +1,16 @@
 #include "connection.h"
 
-
 Connection::Connection()
 {
 
 }
 
-bool Connection::createconnect()
+bool Connection::createconnection()
 {bool test=false;
-QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-db.setDatabaseName("client1");
-db.setUserName("firas1");
-db.setPassword("firas1");
+db = QSqlDatabase::addDatabase("QODBC");
+db.setDatabaseName("test");
+db.setUserName("youssef");//inserer nom de l'utilisateur
+db.setPassword("esprit21");//inserer mot de passe de cet utilisateur
 
 if (db.open())
 test=true;
@@ -21,5 +20,9 @@ test=true;
 
 
     return  test;
+
 }
-void Connection::closeconnection(){db.close();}
+void Connection::closeconnection()
+{
+    db.close();
+}
