@@ -1,11 +1,11 @@
 #ifndef EMPLOYE_H
 #define EMPLOYE_H
 #include<QString>
-#include<QSqlQueryModel>
+
 #include<QTableView>
-#include <QSqlTableModel>
+#include <QtSql/qsqltablemodel.h>
 #include <QMessageBox>
-#include <QSqlError>
+#include <QtSql/QSqlError>
 
 class employe
 {
@@ -43,3 +43,5 @@ private:
 };
 
 #endif // EMPLOYE_H
+
+

@@ -1,25 +1,12 @@
-/*
-Copyright (c) 2013 Raivis Strogonovs
-
-http://morf.lv
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
-
-
-
 #include "smtp.h"
 
 Smtp::Smtp( const QString &user, const QString &pass, const QString &host, int port, int timeout )
-{    
+{
     socket = new QSslSocket(this);
 
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(socket, SIGNAL(connected()), this, SLOT(connected() ) );
-    connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this,SLOT(errorReceived(QAbstractSocket::SocketError)));   
+    connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this,SLOT(errorReceived(QAbstractSocket::SocketError)));
     connect(socket, SIGNAL(stateChanged(QAbstractSocket::SocketState)), this, SLOT(stateChanged(QAbstractSocket::SocketState)));
     connect(socket, SIGNAL(disconnected()), this,SLOT(disconnected()));
 
@@ -36,7 +23,7 @@ Smtp::Smtp( const QString &user, const QString &pass, const QString &host, int p
 
 void Smtp::sendMail(const QString &from, const QString &to, const QString &subject, const QString &body, QStringList files)
 {
-    message = "To: " + to + "\n";    
+    message = "To: " + to + "\n";
     message.append("From: " + from + "\n");
     message.append("Subject: " + subject + "\n");
 
@@ -122,7 +109,7 @@ void Smtp::disconnected()
 }
 
 void Smtp::connected()
-{    
+{
     qDebug() << "Connected ";
 }
 
@@ -188,7 +175,7 @@ void Smtp::readyRead()
     }
     else if (state == User && responseLine == "334")
     {
-        //Trying User        
+        //Trying User
         qDebug() << "Username";
         //GMAIL is using XOAUTH2 protocol, which basically means that password and username has to be sent in base64 coding
         //https://developers.google.com/gmail/xoauth2_protocol

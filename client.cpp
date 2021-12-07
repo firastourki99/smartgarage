@@ -122,6 +122,6 @@ QSqlQueryModel *Client::rechercher(QString cinn)
       model->setHeaderData(4,Qt::Horizontal,QObject::tr("MATRICULE"));
       model->setHeaderData(4,Qt::Horizontal,QObject::tr("MAIL"));
 
-*/
+    */
 
       return model; }

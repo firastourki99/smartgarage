@@ -1,7 +1,7 @@
 #include "employe.h"
-#include <QSqlQuery>
+#include <QtSql/QSqlQuery>
 #include <QtDebug>
-#include <QSqlQueryModel>
+#include <QtSql/QSqlQueryModel>
 #include <QObject>
 #include <QSortFilterProxyModel>
 

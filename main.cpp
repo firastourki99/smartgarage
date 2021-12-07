@@ -1,10 +1,10 @@
 #include "mainwindow.h"
-#include "email.h"
+//#include "email.h"
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
-#include "menu.h"
-#include "firas.h"
+//#include "menu.h"
+//#include "firas.h"
 //test
 int main(int argc, char *argv[])
 {
@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     Connection c;
     bool test=c.createconnection();
-    menu w;
+    MainWindow w;
 
 
     if(test)
