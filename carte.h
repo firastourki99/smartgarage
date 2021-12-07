@@ -1,11 +1,11 @@
 #ifndef CARTE_H
 #define CARTE_H
 #include"connection.h"
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
 #include <QtDebug>
-#include <QSqlQueryModel>
+#include <QtSql/QSqlQueryModel>
 
 
 class carte

@@ -1,8 +1,8 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include<QString>
-#include<QSqlQuery>
-#include<QSqlQueryModel>
+#include<QtSql/QSqlQuery>
+#include<QtSql/QSqlQueryModel>
 #include<QTableView>
 
 
@@ -37,7 +37,7 @@ public:
     bool ajouter();
 
     QSqlQueryModel*afficher();
-        QSqlQueryModel*afficherjoin();
+    QSqlQueryModel*afficherjoin();
     QSqlQueryModel*tri();
     bool supprimer(int );
     bool modifier(int);
