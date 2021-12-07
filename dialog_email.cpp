@@ -1,5 +1,6 @@
 #include "dialog_email.h"
 #include "ui_dialog_email.h"
+#include "mainwindow.h"
 
 Dialog_email::Dialog_email(QWidget *parent) :
     QDialog(parent),
@@ -9,6 +10,7 @@ Dialog_email::Dialog_email(QWidget *parent) :
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
     connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
+    connect(ui->pushButton, SIGNAL(clicked()),this, SLOT(close()));
 
     ui->paswd->setEchoMode(QLineEdit::Password);
 }
@@ -52,3 +54,6 @@ Dialog_email::~Dialog_email()
 {
     delete ui;
 }
+
+
+

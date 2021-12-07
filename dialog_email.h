@@ -22,6 +22,8 @@ private slots:
     void mailSent(QString);
     void browse();
 
+
+
 private:
     Ui::Dialog_email *ui;
     QStringList files;

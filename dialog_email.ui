@@ -52,7 +52,7 @@
   <widget class="QPushButton" name="exitBtn">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>390</x>
      <y>500</y>
      <width>112</width>
      <height>34</height>
@@ -164,6 +164,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>500</y>
+     <width>112</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
   </widget>
  </widget>
  <resources/>

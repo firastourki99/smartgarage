@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
     ui->comboBox_fonction->setModel(e.afficherr());
+
+
     affiche();
 
 
@@ -282,5 +284,10 @@ void MainWindow::on_stat_clicked()
 void MainWindow::on_comboBox_fonction_activated(const QString &arg1)
 {
 
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
 
 }

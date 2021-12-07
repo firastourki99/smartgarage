@@ -10,6 +10,7 @@
 
 
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -60,9 +61,17 @@ private slots:
 
    void on_comboBox_fonction_activated(const QString &arg1);
 
+   void on_pushButton_2_clicked();
+
 private:
+
     Ui::MainWindow *ui;
     Dialog_email *dialog_email;
+
+
+
+
+
 
     employe e;
 
