@@ -274,8 +274,6 @@ void MainWindow::on_stat_clicked()
                 d ++;
             }
         }
-        qDebug() <<v;
-        qDebug() <<d;
         float total = d + v;
         float t = d /total;
         float f = v /total;
