@@ -3,6 +3,7 @@
 carte::carte()
 {
 
+
 }
 void carte::setcin(QString x)
 {

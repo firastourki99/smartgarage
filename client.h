@@ -6,6 +6,7 @@
 #include<QTableView>
 
 
+
 class Client
 {
 private:

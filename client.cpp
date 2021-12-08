@@ -3,6 +3,7 @@
 
 
 
+
 Client::Client(int cin, int num ,QString nom, QString prenom,QString addresse,QString mail,QString matricule)
 {
     this->CIN=cin;

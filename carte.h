@@ -8,6 +8,7 @@
 #include <QSqlQueryModel>
 
 
+
 class carte
 {
 public:
