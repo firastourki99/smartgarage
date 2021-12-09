@@ -1,6 +1,7 @@
 QT       += core gui sql printsupport network
 QT       += sql
 QT       += core gui charts
+QT       += core gui  serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,32 +19,47 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     carte.cpp \
     client.cpp \
     connection.cpp \
+    dialog.cpp \
     dialog2.cpp \
     dialog_email.cpp \
     employe.cpp \
+    mailing_sercice.cpp \
     main.cpp \
     mainwindow.cpp \
+    notifications.cpp \
+    service.cpp \
     smtp.cpp \
+    stat_combo.cpp \
     voiture.cpp
 
 HEADERS += \
+    arduino.h \
     carte.h \
     client.h \
     connection.h \
+    dialog.h \
     dialog2.h \
     dialog_email.h \
     employe.h \
+    mailing_sercice.h \
     mainwindow.h \
+    notifications.h \
+    service.h \
     smtp.h \
+    stat_combo.h \
     voiture.h
 
 FORMS += \
+    dialog.ui \
     dialog2.ui \
     dialog_email.ui \
-    mainwindow.ui
+    mailing_sercice.ui \
+    mainwindow.ui \
+    stat_combo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

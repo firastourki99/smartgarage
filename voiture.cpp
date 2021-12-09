@@ -5,7 +5,7 @@ Voiture::Voiture()
 
 }
 
-Voiture::Voiture(int matricule, int cin, QString marque, QString modele, QString couleur, QDate date)
+Voiture::Voiture(int matricule, int cin, QString marque, QString modele, QString couleur, QDate date, int etat)
 {
     this->matricule = matricule;
     this->cin = cin;
@@ -13,6 +13,7 @@ Voiture::Voiture(int matricule, int cin, QString marque, QString modele, QString
     this->modele = modele;
     this->couleur = couleur;
     this->date = date;
+    this->etat = etat;
 }
 
 int Voiture::getIdClient(){return cin;}
@@ -35,14 +36,15 @@ bool Voiture::ajouter()
     QSqlQuery query;
     QString id_string = QString::number(cin);
     QString id_matricule = QString::number(matricule);
-          query.prepare("INSERT INTO voiture (matricule, CIN, marque, modele, couleur, DATE_AJOUT) "
-                        "VALUES (:matricule, :IdClient, :marque, :modele, :couleur, :date)");
+          query.prepare("INSERT INTO voiture (matricule, CIN, marque, modele, couleur, DATE_AJOUT, etat) "
+                        "VALUES (:matricule, :IdClient, :marque, :modele, :couleur, :date, :etat)");
           query.bindValue(":IdClient", id_string);
           query.bindValue(":matricule", id_matricule);
           query.bindValue(":marque", marque);
           query.bindValue(":modele", modele);
           query.bindValue(":couleur", couleur);
           query.bindValue(":date", date);
+          query.bindValue(":etat", etat);
 
     return query.exec();
 }

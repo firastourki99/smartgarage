@@ -18,7 +18,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    controleSaisie();
+    QDateTime UTC(QDateTime::currentDateTimeUtc());
+     QDateTime local(UTC.toLocalTime());
+              qDebug() << "UTC time is:" << UTC;
+              qDebug() << "Local time is:" << local;
+             // qDebug() << "No difference between times:" << UTC.secsTo(local);
+              ui->dateTimeEdit->setDateTime(local);
+              ui->tableService->setModel(sr.afficher());
     ui->stackedWidget->setCurrentIndex(0);
+    //QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
     ui->ID->setValidator( new QIntValidator(100,9999999,this));
     ui->tab_employe->setModel(e.afficher());
     ui->comboBox_fonction->setModel(e.afficherr());
@@ -36,6 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     ui->le_modifier->setValidator(new QIntValidator(0, 9999999, this));
+    ui->le_arduino->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_matricule->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_recherche->setValidator(new QIntValidator(0, 9999999, this));
     ui->le_marque->setValidator(new QRegExpValidator( QRegExp("[A-Za-z\\s]{0,12}"), this ));
@@ -44,6 +54,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->le_couleur->setEnabled(false);
     ui->tab_voiture->setModel(V.afficher());
     ui->tab_voiture->setModel(V.trie());
+    ui->tab_voiture_ard->setModel(V.afficher());
+    ui->tab_voiture_ard->setModel(V.trie());
 
     QPixmap buttonImage("C:/Users/mehdi/OneDrive/Bureau/Gestion_Voiture/color.png");
     QIcon buttonIcon(buttonImage);
@@ -63,12 +75,23 @@ void MainWindow::affiche()
     proxy_employe ->setFilterCaseSensitivity(Qt::CaseInsensitive);
     proxy_employe ->setFilterKeyColumn(selected_employe);
     ui->tab_employe->setModel(proxy_employe );
-
-
 }
 
 
-
+//void MainWindow::update_label()
+//{
+//    data = A.read_from_arduino();
+//    if (data == "1")
+//    {
+//        data.clear();
+//        ui->lb_ard->setText("Carte non valide");
+//    }
+//    else if (data == "2")
+//    {
+//        data.clear();
+//        ui->lb_ard->setText("Carte valide");
+//    }
+//}
 
 
 
@@ -632,6 +655,7 @@ void MainWindow::on_pb_retour_client_clicked()
 void MainWindow::on_pb_retour_employe_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    d->close_arduino();
 }
 
 
@@ -645,8 +669,9 @@ void MainWindow::on_pb_ajouter_clicked()
     QString modele = ui->le_modele->text();
     QString couleur = ui->le_couleur->text();
     QDate date = ui->dateEdit->date();
+    int etat = ui->cb_etat->currentText().toInt();
 
-    Voiture V(matricule, id, marque, modele, couleur, date);
+    Voiture V(matricule, id, marque, modele, couleur, date, etat);
     bool test = V.ajouter();
 
     if(test)
@@ -858,4 +883,300 @@ void MainWindow::on_pb_retour_v_clicked()
 void MainWindow::on_pb_voiture_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pb_arduino_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pb_ard_clicked()
+{
+    int ret=A.connect_arduino();
+    switch(ret){
+        case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                break;
+          case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+               break;
+         case(-1):qDebug() << "arduino is not available";
+           }
+    QString s = ui->le_arduino->text();
+    qDebug()<<s;
+    if (s == "Carte valide")
+    {
+        QSqlQuery q("select etat from voiture where matricule =:mat");
+        q.bindValue(":mat", s);
+        qDebug()<<q.first();
+            int etat = q.value(0).toInt();
+            qDebug()<<etat;
+
+            if (etat == 0)
+            {
+                A.write_to_arduino("0");
+            }
+            else if(etat == 1)
+            {
+                A.write_to_arduino("1");
+            }
+
+    }
+    else
+    {
+        A.write_to_arduino("2");
+        //QMessageBox::critical(nullptr,QObject::tr("Erreur"),QObject::tr("Ajout impossible.\n""Veuillez inserer un carte valide."),QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pb_retour_ard_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    d = new Dialog(this);
+    d->show();
+
+}
+
+
+//******************************************
+
+void MainWindow::controleSaisie(){
+     ui->tableService->setModel(sr.afficher());
+     ui->s_id->clear();
+     ui->s_nom->clear();
+     ui->s_cout->clear();
+     ui->s_duree->clear();
+     ui->stackedWidget->setCurrentIndex(0);
+   //  ui->s_id_modifier->setEnabled(false);
+     ui->s_nom_modifier->clear();
+     ui->s_cout_modifier->clear();
+     ui->s_duree_modifier->clear();
+     ui->s_nom_modifier->hide();
+     ui->s_cout_modifier->hide();
+     ui->s_duree_modifier->hide();
+     ui->s_dis_e->hide();
+     ui->service_modifier->hide();
+     ui->service_supprimer->hide();
+     ui->s_id->setValidator(new QIntValidator(0,9999999,this));
+     ui->s_nom->setValidator(new QRegExpValidator( QRegExp("[A-Za-z ]*") , this ));
+     ui->s_nom_modifier->setValidator(new QRegExpValidator( QRegExp("[A-Za-z ]*") , this ));
+     ui->s_cout->setValidator(new QIntValidator(0,9999999,this));
+     ui->s_cout_modifier->setValidator(new QIntValidator(0,9999999,this));
+     ui->s_id_modifier->setValidator(new QIntValidator(0,9999999,this));
+
+
+}
+
+void MainWindow::on_ajoutFormulaire_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(1);
+}
+
+void MainWindow::on_button_Ajouter_clicked()
+{
+    int id = ui->s_id->text().toInt();
+    QString nom = ui->s_nom->text();
+    int cout = ui->s_cout->text().toInt();
+    int duree = ui->s_duree->text().toInt();
+    QString disponibilite = ui->s_dis->currentText();
+    if (id<=0){
+        QMessageBox::critical(nullptr, QObject::tr("Ajout service"),
+                                      QObject::tr("Verifier le champ id!! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(nom.size()<=2){
+        QMessageBox::critical(nullptr, QObject::tr("Produit ajout"),
+                                      QObject::tr("Saisir un nom > 3 charachters!! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(cout<=0){
+        QMessageBox::critical(nullptr, QObject::tr("Service ajout"),
+                                      QObject::tr("Le prix ne doit pas etre 0 Ou negative .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(duree<=3){
+        QMessageBox::critical(nullptr, QObject::tr("Service ajout"),
+                                      QObject::tr("Saisir une duree valide .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(disponibilite.size()<=3){
+            QMessageBox::critical(nullptr, QObject::tr("Service ajout"),
+                                          QObject::tr("Choir une etat valide .\n"
+                                                      "Click Ok to exit."), QMessageBox::Ok);
+
+}
+    else{
+    service sd(id,nom,cout,duree,disponibilite);
+    bool test = sd.ajouter();
+    if (test){
+        controleSaisie();
+        QMessageBox::information(nullptr, QObject::tr("Service ajout"),
+                                      QObject::tr("Success !! .\n"
+                                                  "Cli"
+                                                  "*ck Ok to exit."), QMessageBox::Ok);
+        Notifications *notif=new Notifications();
+        notif->show_notif("succes","Service Ajouter");
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("Service ajout"),
+                                      QObject::tr("ID deja utiliser ! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    }
+}
+
+void MainWindow::on_tableService_activated(const QModelIndex &index)
+{
+    QString val=ui->tableService->model()->data(index).toString();
+        QSqlQuery qry;
+        qry.prepare("Select nom,cout,duree from service where  id='"+val+"'");
+        if(qry.exec())
+        {
+            while(qry.next())
+                    {
+                        ui->s_id_modifier->setText(val);
+                        ui->s_nom_modifier->setText(qry.value(0).toString());
+                        ui->s_cout_modifier->setText(qry.value(1).toString());
+                        ui->s_duree_modifier->setText(qry.value(2).toString());
+
+                        ui->s_id_modifier->setEnabled(false);
+                        ui->s_nom_modifier->show();
+                        ui->s_cout_modifier->show();
+                        ui->s_duree_modifier->show();
+                        ui->s_dis_e->show();
+                        ui->service_modifier->show();
+                        ui->service_supprimer->show();
+                    }
+        }
+}
+
+void MainWindow::on_service_supprimer_clicked()
+{
+    int id=ui->s_id_modifier->text().toInt();
+
+    bool test2=sr.supprimer(id);
+    if(test2){
+        controleSaisie();
+        QMessageBox::information(nullptr, QObject::tr("Service Supprimer"),
+                                      QObject::tr("Succés .\n" "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else{
+        controleSaisie();
+        QMessageBox::critical(nullptr, QObject::tr("Service Supprimer"),
+                                      QObject::tr("Eurreur !! !\n"), QMessageBox::Cancel);
+
+    }
+}
+
+void MainWindow::on_service_modifier_clicked()
+{
+    int id = ui->s_id_modifier->text().toInt();
+    QString nom = ui->s_nom_modifier->text();
+    int cout = ui->s_cout_modifier->text().toInt();
+    int duree = ui->s_duree_modifier->text().toInt();
+    QString disponibilite = ui->s_dis_e->currentText();
+    if (id<=0){
+        QMessageBox::critical(nullptr, QObject::tr("Modifier service"),
+                                      QObject::tr("Verifier le champ id!! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(nom.size()<=2){
+        QMessageBox::critical(nullptr, QObject::tr("Modifier ajout"),
+                                      QObject::tr("Saisir un nom > 3 charachters!! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(cout<=0){
+        QMessageBox::critical(nullptr, QObject::tr("Modifier ajout"),
+                                      QObject::tr("Le prix ne doit pas etre 0 Ou negative .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(duree<=3){
+        QMessageBox::critical(nullptr, QObject::tr("Modifier ajout"),
+                                      QObject::tr("Saisir une duree valide .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else if(disponibilite.size()<=3){
+            QMessageBox::critical(nullptr, QObject::tr("Modifier ajout"),
+                                          QObject::tr("Choir une etat valide .\n"
+                                                      "Click Ok to exit."), QMessageBox::Ok);
+
+}
+    else{
+    service sd(id,nom,cout,duree,disponibilite);
+    bool test = sd.modifier(id);
+    if (test){
+        controleSaisie();
+        QMessageBox::information(nullptr, QObject::tr("Modifier ajout"),
+                                      QObject::tr("Success !! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    else{
+        QMessageBox::critical(nullptr, QObject::tr("Modifier ajout"),
+                                      QObject::tr("ID deja utiliser ! .\n"
+                                                  "Click Ok to exit."), QMessageBox::Ok);
+
+    }
+    }
+}
+
+void MainWindow::on_s_recherche_textChanged(const QString &arg1)
+{
+     ui->tableService->setModel(sr.afficherRech(arg1));
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+   s = new stat_combo();
+
+  s->setWindowTitle("statistique Services");
+  s->choix_bar();
+  s->show();
+
+
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->stackedWidget_3->setCurrentIndex(1);
+    ui->s_nom_modifier->show();
+    ui->s_cout_modifier->show();
+    ui->s_duree_modifier->show();
+    ui->s_dis_e->show();
+    ui->s_id_modifier->show();
+    ui->service_modifier->show();
+    ui->service_supprimer->show();
+}
+
+void MainWindow::on_envoie_mailservice_clicked()
+{
+    mailing_sercice m;
+    m.exec();
+
+}
+
+void MainWindow::on_pb_gc_service_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::on_pb_retour_service_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }

@@ -12,7 +12,7 @@ class Voiture
 {
 public:
     Voiture();
-    Voiture(int, int, QString, QString, QString, QDate);
+    Voiture(int, int, QString, QString, QString, QDate, int);
 
     //GETTERS
     int getIdClient();
@@ -40,7 +40,7 @@ public:
     bool suprimmer(int);
     bool modifier(int&, QString&, QString&);
 private:
-    int matricule, cin;
+    int matricule, cin, etat;
     QString marque, modele, couleur;
     QDate date;
 };
